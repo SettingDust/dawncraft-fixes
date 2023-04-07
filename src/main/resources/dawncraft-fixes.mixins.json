@@ -1,0 +1,18 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "io.github.settingdust.dawncraftfixes.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "refmap": "dawncraft-fixes.refmap.json",
+    "mixins": [
+        "braincell.MixinBCCapabilityHelper",
+        "braincell.MixinBCMovementHooks",
+        "dannysexpansion.MixinPlayerHelper",
+        "epicfight.MixinCPExecuteSkill"
+    ],
+    "client": [
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
