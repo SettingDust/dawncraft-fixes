@@ -8,7 +8,8 @@
         "braincell.MixinBCCapabilityHelper",
         "braincell.MixinBCMovementHooks",
         "dannysexpansion.MixinPlayerHelper",
-        "epicfight.MixinCPExecuteSkill"
+        "epicfight.MixinCPExecuteSkill",
+        "unvoted.MixinMobEvents"
     ],
     "client": [
     ],

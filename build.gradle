@@ -160,6 +160,7 @@ dependencies {
     implementation fg.deobf("bottomtextdanny:braincell:1.18")
     implementation fg.deobf("bottomtextdanny:dannys_expansion:1.2.6")
     implementation fg.deobf("yesman:epicfight:18.3.7")
+    implementation fg.deobf("cursedcauldron:unvotedandshelved:2.0.6")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
