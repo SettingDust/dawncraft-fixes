@@ -17,7 +17,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.1.0'
+version = '0.1.3'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -145,6 +145,11 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
+configurations {
+    shade
+    implementation.extendsFrom shade
+}
+
 dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
@@ -161,20 +166,28 @@ dependencies {
     implementation fg.deobf("bottomtextdanny:dannys_expansion:1.2.6")
     implementation fg.deobf("yesman:epicfight:18.3.7")
     implementation fg.deobf("cursedcauldron:unvotedandshelved:2.0.6")
+    implementation fg.deobf("superlord:goblinsanddungeons:1.0.8")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
-    shadow("com.github.LlamaLad7:MixinExtras:0.1.1")
-    annotationProcessor("com.github.LlamaLad7:MixinExtras:0.1.1")
+    shade "com.github.LlamaLad7:MixinExtras:0.1.1"
+    annotationProcessor "com.github.LlamaLad7:MixinExtras:0.1.1"
+    minecraftLibrary "com.github.LlamaLad7:MixinExtras:0.1.1"
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
-// Example for how to get properties into the manifest for reading at runtime.
+jar.finalizedBy('reobfJar')
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
 jar {
+    archiveClassifier = 'slim'
+
     manifest {
         attributes([
                 "Specification-Title"     : "dawncraftfixes",
@@ -188,12 +201,15 @@ jar {
     }
 }
 
-jar.finalizedBy('reobfJar')
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+shadowJar {
+    archiveClassifier = ''
+    configurations = [project.configurations.shade]
+    relocate 'com.llamalad7.mixinextras', "${project.group}.relocated.com.llamalad7.mixinextras"
+    finalizedBy 'reobfShadowJar'
 }
 
-shadowJar {
-    relocate 'com.llamalad7.mixinextras', 'shadow.com.llamalad7.mixinextras'
+assemble.dependsOn shadowJar
+
+reobf {
+    shadowJar {}
 }

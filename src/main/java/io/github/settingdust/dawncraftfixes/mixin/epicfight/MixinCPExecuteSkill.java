@@ -8,6 +8,7 @@ import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 
 @Mixin(CPExecuteSkill.class)
 public class MixinCPExecuteSkill {
+
     @WrapWithCondition(
             method = "lambda$handle$0",
             at = @At(

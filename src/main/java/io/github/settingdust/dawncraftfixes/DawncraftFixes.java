@@ -1,6 +1,7 @@
 package io.github.settingdust.dawncraftfixes;
 
 import com.cursedcauldron.unvotedandshelved.entities.CopperGolemEntity;
+import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Zombie;
@@ -18,6 +19,7 @@ public class DawncraftFixes {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public DawncraftFixes() {
+        MixinExtrasBootstrap.init();
         MinecraftForge.EVENT_BUS.register(this);
     }
 

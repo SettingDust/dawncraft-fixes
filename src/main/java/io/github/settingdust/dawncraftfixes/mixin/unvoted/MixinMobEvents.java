@@ -1,6 +1,7 @@
 package io.github.settingdust.dawncraftfixes.mixin.unvoted;
 
 import com.cursedcauldron.unvotedandshelved.events.MobEvents;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,6 +12,7 @@ public class MixinMobEvents {
     /**
      * @author SettingDust
      * @reason Wrong event. Causing leaking
+     * @see io.github.settingdust.dawncraftfixes.DawncraftFixes#onLivingCreated(EntityJoinWorldEvent)
      */
     @Overwrite(remap = false)
     @SubscribeEvent

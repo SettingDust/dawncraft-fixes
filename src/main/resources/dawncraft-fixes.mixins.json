@@ -8,7 +8,7 @@
         "braincell.MixinBCCapabilityHelper",
         "braincell.MixinBCMovementHooks",
         "dannysexpansion.MixinPlayerHelper",
-        "epicfight.MixinCPExecuteSkill",
+        "goblinsanddungeons.MixinGDArmorMaterial",
         "unvoted.MixinMobEvents"
     ],
     "client": [
