@@ -7,7 +7,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
 
@@ -20,12 +20,12 @@ public class DawncraftFixes {
 
     public DawncraftFixes() {
         MixinExtrasBootstrap.init();
-        MinecraftForge.EVENT_BUS.register(this);
+        if (ModList.get().isLoaded("unvotedandshelved"))
+            MinecraftForge.EVENT_BUS.addListener(this::onLivingCreated);
     }
 
-    @SubscribeEvent
-    public void onLivingCreated(EntityJoinWorldEvent event) {
-        if (event.getEntity() instanceof Zombie zombie) {
+    private void onLivingCreated(EntityJoinWorldEvent event) {
+        if (event.getEntity() instanceof Zombie zombie && !event.loadedFromDisk()) {
             zombie.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(zombie, CopperGolemEntity.class, true));
         }
     }

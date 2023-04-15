@@ -11,13 +11,12 @@ buildscript {
 
 plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
-    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.1.3'
+version = '0.1.4'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -142,12 +141,9 @@ repositories {
     flatDir {
         dir 'libs'
     }
-    maven { url 'https://jitpack.io' }
-}
 
-configurations {
-    shade
-    implementation.extendsFrom shade
+    maven { url 'https://jitpack.io' }
+
 }
 
 dependencies {
@@ -172,14 +168,23 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    shade "com.github.LlamaLad7:MixinExtras:0.1.1"
-    annotationProcessor "com.github.LlamaLad7:MixinExtras:0.1.1"
-    minecraftLibrary "com.github.LlamaLad7:MixinExtras:0.1.1"
+    compileOnly annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixin_extras_version}")
+    implementation jarJar("com.github.llamalad7.mixinextras:mixinextras-forge:${mixin_extras_version}") {
+        transitive = false
+        jarJar.ranged it, "[${mixin_extras_version},)"
+    }
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 jar.finalizedBy('reobfJar')
+
+tasks.jarJar {
+    classifier ""
+    from "LICENSE"
+}
+
+tasks.jarJar.finalizedBy(reobf.maybeCreate("jarJar"))
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
@@ -199,17 +204,4 @@ jar {
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
-}
-
-shadowJar {
-    archiveClassifier = ''
-    configurations = [project.configurations.shade]
-    relocate 'com.llamalad7.mixinextras', "${project.group}.relocated.com.llamalad7.mixinextras"
-    finalizedBy 'reobfShadowJar'
-}
-
-assemble.dependsOn shadowJar
-
-reobf {
-    shadowJar {}
 }

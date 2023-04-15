@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 public class MixinGDArmorMaterial {
 
     @Final
-    @Shadow
+    @Shadow(remap = false)
     private Supplier<Ingredient> repairMaterial = dcfixes$nonnullRepairMaterial();
 
     public Supplier<Ingredient> dcfixes$nonnullRepairMaterial() {
