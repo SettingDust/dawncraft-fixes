@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.1.4'
+version = '0.1.5'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -163,6 +163,7 @@ dependencies {
     implementation fg.deobf("yesman:epicfight:18.3.7")
     implementation fg.deobf("cursedcauldron:unvotedandshelved:2.0.6")
     implementation fg.deobf("superlord:goblinsanddungeons:1.0.8")
+    implementation fg.deobf("reascer:dualgreatsword:1.8")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

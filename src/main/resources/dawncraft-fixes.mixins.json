@@ -8,10 +8,9 @@
         "braincell.MixinBCCapabilityHelper",
         "braincell.MixinBCMovementHooks",
         "dannysexpansion.MixinPlayerHelper",
+        "dualgreatsword.MixinEFAnimations",
         "goblinsanddungeons.MixinGDArmorMaterial",
         "unvoted.MixinMobEvents"
-    ],
-    "client": [
     ],
     "injectors": {
         "defaultRequire": 1
