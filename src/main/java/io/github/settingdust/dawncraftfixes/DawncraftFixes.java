@@ -18,7 +18,7 @@ import java.util.Objects;
 public class DawncraftFixes {
 
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public DawncraftFixes() {
         MixinExtrasBootstrap.init();

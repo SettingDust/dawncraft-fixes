@@ -7,6 +7,9 @@
     "mixins": [
         "braincell.MixinBCCapabilityHelper",
         "braincell.MixinBCMovementHooks",
+        "dannysexpansion.AccessorScatteredFeaturePiece",
+        "dannysexpansion.InvokerKlifourSpawnPiece",
+        "dannysexpansion.MixinDEStructures",
         "dannysexpansion.MixinPlayerHelper",
         "dualgreatsword.MixinEFAnimations",
         "goblinsanddungeons.MixinGDArmorMaterial",
