@@ -10,6 +10,7 @@
         "dannysexpansion.AccessorScatteredFeaturePiece",
         "dannysexpansion.InvokerKlifourSpawnPiece",
         "dannysexpansion.MixinDEStructures",
+        "dannysexpansion.MixinKlifourSpawnPiece",
         "dannysexpansion.MixinPlayerHelper",
         "dualgreatsword.MixinEFAnimations",
         "goblinsanddungeons.MixinGDArmorMaterial",
