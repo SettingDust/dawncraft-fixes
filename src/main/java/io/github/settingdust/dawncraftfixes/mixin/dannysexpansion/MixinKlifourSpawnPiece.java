@@ -11,10 +11,9 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(KlifourSpawnPiece.class)
 public class MixinKlifourSpawnPiece {
-    @WrapOperation(remap = false,
+    @WrapOperation(
             method = "postProcess",
             at = @At(
-                    remap = false,
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/level/WorldGenLevel;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;"
             )
