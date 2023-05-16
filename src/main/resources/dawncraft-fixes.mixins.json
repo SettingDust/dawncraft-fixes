@@ -1,25 +1,27 @@
 {
-    "required": true,
-    "minVersion": "0.8",
-    "package": "io.github.settingdust.dawncraftfixes.mixin",
-    "compatibilityLevel": "JAVA_8",
-    "refmap": "dawncraft-fixes.refmap.json",
-    "mixins": [
-        "braincell.MixinBCCapabilityHelper",
-        "braincell.MixinBCMovementHooks",
-        "dannysexpansion.AccessorScatteredFeaturePiece",
-        "dannysexpansion.InvokerKlifourSpawnPiece",
-        "dannysexpansion.MixinDEStructures",
-        "dannysexpansion.MixinKlifourSpawnPiece",
-        "dannysexpansion.MixinPlayerHelper",
-        "dualgreatsword.MixinEFAnimations",
-        "goblinsanddungeons.MixinGDArmorMaterial",
-        "unvoted.MixinMobEvents"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    },
-    "client": [
-        "callablehorses.MixinGuiStatViewer"
-    ]
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.settingdust.dawncraftfixes.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "dawncraft-fixes.refmap.json",
+  "plugin": "DawncraftFixesMixinConfig",
+  "mixins": [
+    "braincell.MixinBCCapabilityHelper",
+    "braincell.MixinBCMovementHooks",
+    "dannysexpansion.AccessorScatteredFeaturePiece",
+    "dannysexpansion.InvokerKlifourSpawnPiece",
+    "dannysexpansion.MixinDEStructures",
+    "dannysexpansion.MixinKlifourSpawnPiece",
+    "dannysexpansion.MixinPlayerHelper",
+    "dualgreatsword.MixinEFAnimations",
+    "goblinsanddungeons.MixinGDArmorMaterial",
+    "hitindication.MixinHitEvents",
+    "unvoted.MixinMobEvents"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "callablehorses.MixinGuiStatViewer"
+  ]
 }
