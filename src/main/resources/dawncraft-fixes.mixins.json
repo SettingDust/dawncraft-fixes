@@ -4,7 +4,7 @@
   "package": "io.github.settingdust.dawncraftfixes.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "dawncraft-fixes.refmap.json",
-  "plugin": "DawncraftFixesMixinConfig",
+  "plugin": "io.github.settingdust.dawncraftfixes.DawncraftFixesMixinConfig",
   "mixins": [
     "braincell.MixinBCCapabilityHelper",
     "braincell.MixinBCMovementHooks",
@@ -16,6 +16,7 @@
     "dualgreatsword.MixinEFAnimations",
     "goblinsanddungeons.MixinGDArmorMaterial",
     "hitindication.MixinHitEvents",
+    "untamedwilds.MixinEntityUtils",
     "unvoted.MixinMobEvents"
   ],
   "injectors": {

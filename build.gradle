@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.2.3'
+version = '0.4.0'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -164,6 +164,9 @@ dependencies {
     implementation fg.deobf("reascer:dualgreatsword:1.8")
     implementation fg.deobf("tschipp:callablehorses:1.2.2.5")
     implementation fg.deobf("rosymaple:hitindication:1.18.2-1.1.3")
+    implementation fg.deobf("untamedwilds:untamedwilds:1.18.2-2.4.0")
+
+    runtimeOnly fg.deobf("alexthe666:citadel:1.11.3-1.18.2")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
