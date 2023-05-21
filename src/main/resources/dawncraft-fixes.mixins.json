@@ -16,6 +16,7 @@
     "dualgreatsword.MixinEFAnimations",
     "goblinsanddungeons.MixinGDArmorMaterial",
     "hitindication.MixinHitEvents",
+    "untamedwilds.MixinEntityDataHolder",
     "untamedwilds.MixinEntityUtils",
     "unvoted.MixinMobEvents"
   ],
