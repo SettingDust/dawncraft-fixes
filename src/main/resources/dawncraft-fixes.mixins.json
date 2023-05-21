@@ -18,6 +18,7 @@
     "hitindication.MixinHitEvents",
     "untamedwilds.MixinEntityDataHolder",
     "untamedwilds.MixinEntityUtils",
+    "untamedwilds.MixinNestReptileBlock",
     "unvoted.MixinMobEvents"
   ],
   "injectors": {
