@@ -18,15 +18,17 @@ import java.util.Random;
 
 @Mixin(StructureSpecificMaps.TreasureMapForEmeralds.class)
 public class MixinStructureSpecificMaps {
-    @Shadow
+    @Shadow(remap = false)
     @Final
     private ResourceKey<ConfiguredStructureFeature<?, ?>> destination;
-    @Shadow
+
+    @Shadow(remap = false)
     @Final
     private TagKey<ConfiguredStructureFeature<?, ?>> destinationTag;
 
-    @Inject(method = "getOffer", at = @At(value = "FIELD", target = "Lcom/craisinlord/integrated_api/misc/maptrades/StructureSpecificMaps$TreasureMapForEmeralds;destinationTag:Lnet/minecraft/tags/TagKey;", ordinal = 0))
+    @Inject(method = "getOffer", at = @At(value = "FIELD", target = "destinationTag", ordinal = 0, remap = false))
     public void dcfixes$debugDestination(Entity entity, Random random, CallbackInfoReturnable<MerchantOffer> cir) {
-        DawncraftFixes.LOGGER.debug("[Integrated Api] TreasureMapForEmeralds is trying to find " + (destinationTag == null ? destination : destinationTag));
+        DawncraftFixes.LOGGER.debug("[Integrated Api] TreasureMapForEmeralds is trying to find "
+                + (destinationTag == null ? destination : destinationTag));
     }
 }

@@ -7,7 +7,7 @@ import tschipp.callablehorses.client.gui.GuiStatViewer;
 
 @Mixin(GuiStatViewer.class)
 public class MixinGuiStatViewer {
-    @ModifyConstant(remap = false, method ="<clinit>", constant = @Constant(stringValue = "setSwag"))
+    @ModifyConstant(remap = false, method = "<clinit>", constant = @Constant(stringValue = "setSwag"))
     private static String dcfixes$wrongNameOfSetSwag(String constant) {
         return "m_30771_";
     }

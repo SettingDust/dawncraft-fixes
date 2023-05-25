@@ -5,14 +5,13 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 
 public class DawncraftFixesConfig {
-    public static ForgeConfigSpec COMMON;
+    public static final ForgeConfigSpec COMMON;
 
     static {
         ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
         COMMON_BUILDER.comment("Dual Greatsword").push("dual_greatsword");
         COMMON_BUILDER.comment("NEED RESTART");
-
 
         COMMON_BUILDER.comment("GREATSWORD_TWOHAND_AUTO").push("greatsword_twohand_auto");
 
@@ -32,7 +31,6 @@ public class DawncraftFixesConfig {
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.pop();
-
 
         COMMON_BUILDER.comment("GREATSWORD_DUAL_AUTO").push("greatsword_dual_auto");
 
@@ -60,7 +58,6 @@ public class DawncraftFixesConfig {
 
         COMMON_BUILDER.pop();
 
-
         COMMON_BUILDER.comment("GREATSWORD_DUAL_DASH").push("greatsword_dual_dash");
         configDamage(COMMON_BUILDER, 0.2F);
         configAttackSpeed(COMMON_BUILDER, 1.05F);
@@ -76,7 +73,6 @@ public class DawncraftFixesConfig {
         configDamage(COMMON_BUILDER, 2.4F, 1);
         configAttackSpeed(COMMON_BUILDER, 1.05F);
         COMMON_BUILDER.pop();
-
 
         COMMON_BUILDER.pop();
 

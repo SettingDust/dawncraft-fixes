@@ -18,7 +18,9 @@ public class MixinPlayerHelper {
      */
     @Overwrite(remap = false)
     public static BCAccessoryModule braincellAccessoryModule(Player player) {
-        return player.getCapability(BCPlayerCapability.TOKEN).map(BCPlayerCapability::getAccessories).orElse((null));
+        return player.getCapability(BCPlayerCapability.TOKEN)
+                .map(BCPlayerCapability::getAccessories)
+                .orElse((null));
     }
 
     /**

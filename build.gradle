@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.5.0'
+version = '0.5.1'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -136,12 +136,30 @@ repositories {
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-    flatDir {
-        dir 'libs'
+//    flatDir {
+//        dir 'libs'
+//    }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
 
     maven { url 'https://jitpack.io' }
-
 }
 
 dependencies {
@@ -156,20 +174,22 @@ dependencies {
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
 
     // Examples using mod jars from ./libs
-    implementation fg.deobf("bottomtextdanny:braincell:1.18")
-    implementation fg.deobf("bottomtextdanny:dannys_expansion:1.2.6")
-    implementation fg.deobf("yesman:epicfight:18.3.7")
-    implementation fg.deobf("cursedcauldron:unvotedandshelved:2.0.6")
-    implementation fg.deobf("superlord:goblinsanddungeons:1.0.8")
-    implementation fg.deobf("reascer:dualgreatsword:1.8")
-    implementation fg.deobf("tschipp:callablehorses:1.2.2.5")
-    implementation fg.deobf("rosymaple:hitindication:1.18.2-1.1.3")
+    implementation fg.deobf("curse.maven:braincellapi-616354:3820306")
+    implementation fg.deobf("curse.maven:dannys-expansion-425918:3820328")
 
-    implementation fg.deobf("untamedwilds:untamedwilds:1.18.2-2.4.0")
-    runtimeOnly fg.deobf("alexthe666:citadel:1.11.3-1.18.2")
+    implementation fg.deobf("curse.maven:epic-fight-mod-405076:4447075")
+    implementation fg.deobf("curse.maven:epicfight-dual-greatsword-654098:3972299")
 
-    implementation fg.deobf("craisinlord:integrated_api_forge:1.2.7+1.18.2")
-    runtimeOnly fg.deobf("craisinlord:idas_forge:1.6.4+1.18.2")
+    implementation fg.deobf("curse.maven:unvoted-shelved-551999:4373652")
+    implementation fg.deobf("curse.maven:goblins-dungeons-535096:3785691")
+    implementation fg.deobf("curse.maven:callable-horses-331746:4111364")
+    implementation fg.deobf("curse.maven:hit-indication-848933:4515907")
+
+    implementation fg.deobf("curse.maven:untamedwilds-457252:4534274")
+    runtimeOnly fg.deobf("curse.maven:citadel-331936:3783096")
+
+    implementation fg.deobf("curse.maven:integrated-api-817709:4446913")
+    runtimeOnly fg.deobf("curse.maven:feature-nbt-deadlock-be-gone-560323:3669114")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

@@ -7,15 +7,19 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(ScatteredFeaturePiece.class)
 public interface AccessorScatteredFeaturePiece {
-    @Accessor @Mutable
+    @Accessor
+    @Mutable
     void setWidth(int width);
 
-    @Accessor @Mutable
+    @Accessor
+    @Mutable
     void setHeight(int height);
 
-    @Accessor @Mutable
+    @Accessor
+    @Mutable
     void setDepth(int depth);
 
-    @Accessor @Mutable
+    @Accessor
+    @Mutable
     void setHeightPosition(int heightPosition);
 }

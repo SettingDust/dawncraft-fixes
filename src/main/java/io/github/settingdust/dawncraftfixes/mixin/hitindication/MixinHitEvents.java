@@ -9,7 +9,10 @@ import java.io.PrintStream;
 
 @Mixin(HitEvents.class)
 public class MixinHitEvents {
-    @Redirect(method = "onAttack", remap = false, at = @At(value = "INVOKE", target = "Ljava/io/PrintStream;println(Ljava/lang/Object;)V"))
+    @Redirect(
+            method = "onAttack",
+            remap = false,
+            at = @At(value = "INVOKE", target = "Ljava/io/PrintStream;println(Ljava/lang/Object;)V"))
     private static void dcfixes$disableDebug(PrintStream instance, Object x) {
         // Do nothing
     }

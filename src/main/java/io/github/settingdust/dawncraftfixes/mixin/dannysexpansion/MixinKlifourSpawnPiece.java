@@ -13,12 +13,13 @@ import org.spongepowered.asm.mixin.injection.At;
 public class MixinKlifourSpawnPiece {
     @WrapOperation(
             method = "postProcess",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/WorldGenLevel;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;"
-            )
-    )
-    public BlockState dcfixes$fixCrashWhenGenerating(WorldGenLevel instance, BlockPos blockPos, Operation<BlockState> original) {
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/world/level/WorldGenLevel;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;"))
+    public BlockState dcfixes$fixCrashWhenGenerating(
+            WorldGenLevel instance, BlockPos blockPos, Operation<BlockState> original) {
         return instance.getLevel().getBlockState(blockPos);
     }
 }

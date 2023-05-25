@@ -9,7 +9,15 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(KlifourSpawnPiece.class)
 public interface InvokerKlifourSpawnPiece {
     @Invoker("<init>")
-    static KlifourSpawnPiece dcfixes$init(StructurePieceType p_163188_, int p_163189_, int p_163190_, int p_163191_, int p_163192_, int p_163193_, int p_163194_, Direction p_163195_) {
+    static KlifourSpawnPiece dcfixes$init(
+            StructurePieceType p_163188_,
+            int p_163189_,
+            int p_163190_,
+            int p_163191_,
+            int p_163192_,
+            int p_163193_,
+            int p_163194_,
+            Direction p_163195_) {
         throw new AssertionError();
     }
 }

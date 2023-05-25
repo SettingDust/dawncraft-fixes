@@ -14,6 +14,7 @@
     "dannysexpansion.MixinKlifourSpawnPiece",
     "dannysexpansion.MixinPlayerHelper",
     "dualgreatsword.MixinEFAnimations",
+    "dualgreatsword.MixinEFWeaponCapabilityPresets",
     "goblinsanddungeons.MixinGDArmorMaterial",
     "hitindication.MixinHitEvents",
     "integrated_api.MixinStructureSpecificMaps",

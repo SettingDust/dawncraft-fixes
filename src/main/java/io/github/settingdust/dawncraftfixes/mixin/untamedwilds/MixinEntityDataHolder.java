@@ -13,13 +13,12 @@ import java.util.List;
 
 @Mixin(EntityDataHolder.class)
 public class MixinEntityDataHolder {
-    @Shadow
+    @Shadow(remap = false)
     @Final
     private List<SpeciesDataHolder> speciesData;
 
     @Inject(method = "getName", at = @At("HEAD"), remap = false, cancellable = true)
     public void dcfixes$getName(int i, CallbackInfoReturnable<String> cir) {
-        if (speciesData.size() <= i)
-            cir.setReturnValue("");
+        if (speciesData.size() <= i) cir.setReturnValue("");
     }
 }

@@ -11,12 +11,12 @@ public class MixinCPExecuteSkill {
 
     @WrapWithCondition(
             method = "lambda$handle$0",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lyesman/epicfight/world/capabilities/entitypatch/player/ServerPlayerPatch;getSkill(I)Lyesman/epicfight/skill/SkillContainer;"
-            ),
-            remap = false
-    )
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lyesman/epicfight/world/capabilities/entitypatch/player/ServerPlayerPatch;getSkill(I)Lyesman/epicfight/skill/SkillContainer;"),
+            remap = false)
     private static boolean dcfixes$ensureAlive(ServerPlayerPatch instance, int i) {
         return instance != null;
     }

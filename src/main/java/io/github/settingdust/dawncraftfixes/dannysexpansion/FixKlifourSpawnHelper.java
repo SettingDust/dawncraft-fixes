@@ -13,13 +13,22 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import static io.github.settingdust.dawncraftfixes.DawncraftFixes.LOGGER;
 
 public class FixKlifourSpawnHelper {
-    public static KlifourSpawnPiece dcfixes$klifourSpawnPiece(StructurePieceSerializationContext context, CompoundTag tag) {
-        var box =
-                BoundingBox.CODEC
-                        .parse(NbtOps.INSTANCE, tag.get("BB"))
-                        .resultOrPartial(LOGGER::error).orElseThrow(() -> new IllegalArgumentException("Invalid boundingbox"));
+    public static KlifourSpawnPiece dcfixes$klifourSpawnPiece(
+            StructurePieceSerializationContext context, CompoundTag tag) {
+        var box = BoundingBox.CODEC
+                .parse(NbtOps.INSTANCE, tag.get("BB"))
+                .resultOrPartial(LOGGER::error)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid boundingbox"));
         var direction = tag.getInt("O");
-        var piece = InvokerKlifourSpawnPiece.dcfixes$init(DEStructures.KLIFOUR_SPAWN.getPiece(0), box.minX(), box.minY(), box.minZ(), box.maxX(), box.maxY(), box.maxZ(), direction == -1 ? null : Direction.from2DDataValue(direction));
+        var piece = InvokerKlifourSpawnPiece.dcfixes$init(
+                DEStructures.KLIFOUR_SPAWN.getPiece(0),
+                box.minX(),
+                box.minY(),
+                box.minZ(),
+                box.maxX(),
+                box.maxY(),
+                box.maxZ(),
+                direction == -1 ? null : Direction.from2DDataValue(direction));
         if (piece instanceof AccessorScatteredFeaturePiece converted) {
             converted.setWidth(tag.getInt("Width"));
             converted.setHeight(tag.getInt("Height"));

@@ -16,6 +16,5 @@ public class MixinMobEvents {
      */
     @Overwrite(remap = false)
     @SubscribeEvent
-    public void onLivingCreated(LivingSpawnEvent event) {
-    }
+    public void onLivingCreated(LivingSpawnEvent event) {}
 }

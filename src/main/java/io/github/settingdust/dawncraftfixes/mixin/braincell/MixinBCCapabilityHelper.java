@@ -15,6 +15,8 @@ public class MixinBCCapabilityHelper {
      */
     @Overwrite(remap = false)
     public static BCAccessoryModule accessoryModule(Player player) {
-        return player.getCapability(BCPlayerCapability.TOKEN).map(BCPlayerCapability::getAccessories).orElse(null);
+        return player.getCapability(BCPlayerCapability.TOKEN)
+                .map(BCPlayerCapability::getAccessories)
+                .orElse(null);
     }
 }
