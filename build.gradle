@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.5.1'
+version = '0.7.0'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -136,9 +136,9 @@ repositories {
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-//    flatDir {
-//        dir 'libs'
-//    }
+    flatDir {
+        dir 'libs'
+    }
 
     exclusiveContent {
         forRepository {
@@ -190,6 +190,8 @@ dependencies {
 
     implementation fg.deobf("curse.maven:integrated-api-817709:4446913")
     runtimeOnly fg.deobf("curse.maven:feature-nbt-deadlock-be-gone-560323:3669114")
+
+    implementation fg.deobf('com.feywild.quest_giver:Quest_Giver:1.18.2-1.0.7')
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

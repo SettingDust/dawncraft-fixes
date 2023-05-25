@@ -18,6 +18,7 @@
     "goblinsanddungeons.MixinGDArmorMaterial",
     "hitindication.MixinHitEvents",
     "integrated_api.MixinStructureSpecificMaps",
+    "questgiver.MixinEventListener",
     "untamedwilds.MixinEntityDataHolder",
     "untamedwilds.MixinEntityUtils",
     "untamedwilds.MixinNestReptileBlock",
