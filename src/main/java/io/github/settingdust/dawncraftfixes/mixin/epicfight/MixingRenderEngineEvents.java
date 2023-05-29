@@ -13,7 +13,7 @@ import java.util.Objects;
 public class MixingRenderEngineEvents
 {
     @Inject(remap = false, method = "itemTooltip",at = @At("HEAD"), cancellable = true)
-    private static void dcfixes$wrongNameOfSetSwag(ItemTooltipEvent tooltipEvent, CallbackInfo callbackInfo) {
+    private static void dcfixes$missingClientCheck(ItemTooltipEvent tooltipEvent, CallbackInfo callbackInfo) {
         if(!Objects.requireNonNull(tooltipEvent.getPlayer()).getLevel().isClientSide)
             callbackInfo.cancel();
     }
