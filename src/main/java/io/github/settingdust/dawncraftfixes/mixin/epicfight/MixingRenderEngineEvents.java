@@ -10,11 +10,9 @@ import yesman.epicfight.client.events.engine.RenderEngine;
 import java.util.Objects;
 
 @Mixin(RenderEngine.Events.class)
-public class MixingRenderEngineEvents
-{
-    @Inject(remap = false, method = "itemTooltip",at = @At("HEAD"), cancellable = true)
+public class MixingRenderEngineEvents {
+    @Inject(remap = false, method = "itemTooltip", at = @At("HEAD"), cancellable = true)
     private static void dcfixes$missingClientCheck(ItemTooltipEvent tooltipEvent, CallbackInfo callbackInfo) {
-        if(!Objects.requireNonNull(tooltipEvent.getPlayer()).getLevel().isClientSide)
-            callbackInfo.cancel();
+        if (!Objects.requireNonNull(tooltipEvent.getPlayer()).isLocalPlayer()) callbackInfo.cancel();
     }
 }
