@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.8.0'
+version = '0.8.1'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -183,7 +183,7 @@ dependencies {
     implementation fg.deobf("curse.maven:unvoted-shelved-551999:4373652")
     implementation fg.deobf("curse.maven:goblins-dungeons-535096:3785691")
     implementation fg.deobf("curse.maven:callable-horses-331746:4111364")
-    implementation fg.deobf("curse.maven:hit-indication-848933:4515907")
+    implementation fg.deobf("curse.maven:hit-indication-848933:4555284")
 
     implementation fg.deobf("curse.maven:untamedwilds-457252:4534274")
     runtimeOnly fg.deobf("curse.maven:citadel-331936:3783096")

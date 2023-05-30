@@ -16,7 +16,6 @@
     "dualgreatsword.MixinEFAnimations",
     "dualgreatsword.MixinEFWeaponCapabilityPresets",
     "goblinsanddungeons.MixinGDArmorMaterial",
-    "hitindication.MixinHitEvents",
     "integrated_api.MixinStructureSpecificMaps",
     "questgiver.MixinEventListener",
     "untamedwilds.MixinEntityDataHolder",
