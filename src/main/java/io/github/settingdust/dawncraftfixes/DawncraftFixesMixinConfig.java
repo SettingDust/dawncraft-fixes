@@ -23,7 +23,6 @@ public class DawncraftFixesMixinConfig implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        DawncraftFixes.LOGGER.debug(targetClassName, mixinClassName);
         return true;
     }
 
