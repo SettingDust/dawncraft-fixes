@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.8.3'
+version = '0.8.4'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -192,6 +192,12 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:feature-nbt-deadlock-be-gone-560323:3669114")
 
     implementation fg.deobf('com.feywild.quest_giver:Quest_Giver:1.18.2-1.0.7')
+    runtimeOnly fg.deobf("curse.maven:guard-villagers-360203:3823106")
+    runtimeOnly fg.deobf("curse.maven:reputation-579116:4412129")
+    runtimeOnly fg.deobf("curse.maven:more-villagers-484954:3843498")
+    runtimeOnly fg.deobf("curse.maven:libx-412525:3909225")
+    runtimeOnly fg.deobf("curse.maven:dawncraft-tweaks-638098:4544277")
+    runtimeOnly fg.deobf("curse.maven:atlas-lib-463826:4417565")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
