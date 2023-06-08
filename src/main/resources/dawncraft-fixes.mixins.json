@@ -15,6 +15,7 @@
     "dannysexpansion.MixinPlayerHelper",
     "dualgreatsword.MixinEFAnimations",
     "dualgreatsword.MixinEFWeaponCapabilityPresets",
+    "epicfight.MixinEntityEvents",
     "goblinsanddungeons.MixinGDArmorMaterial",
     "integrated_api.MixinStructureSpecificMaps",
     "questgiver.MixinEventListener",
