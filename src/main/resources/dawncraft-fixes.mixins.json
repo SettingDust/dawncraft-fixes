@@ -17,6 +17,7 @@
     "dualgreatsword.MixinEFWeaponCapabilityPresets",
     "epicfight.MixinEntityEvents",
     "goblinsanddungeons.MixinGDArmorMaterial",
+    "goblinsanddungeons.MixinItemWithTooltip",
     "integrated_api.MixinStructureSpecificMaps",
     "questgiver.MixinEventListener",
     "untamedwilds.MixinEntityDataHolder",
