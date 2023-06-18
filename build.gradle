@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.10.1'
+version = '0.11.0'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -60,6 +60,11 @@ minecraft {
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'dawncraft-fixes'
+
+            property 'mixin.debug.export', 'true'
+            property 'mixin.checks.interfaces', 'true'
+            property 'mixin.hotSwap', 'true'
+            property 'mixin.debug.verbose', 'true'
 
             mods {
                 dawncraftfixes {
@@ -198,6 +203,26 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:libx-412525:3909225")
     runtimeOnly fg.deobf("curse.maven:dawncraft-tweaks-638098:4544277")
     runtimeOnly fg.deobf("curse.maven:atlas-lib-463826:4417565")
+    runtimeOnly fg.deobf("curse.maven:orcz-581652:3945799")
+    runtimeOnly fg.deobf("curse.maven:difficult-raids-599116:4578894")
+    runtimeOnly fg.deobf("curse.maven:illage-and-spillage-576368:3912773")
+    runtimeOnly fg.deobf("curse.maven:biome-makeover-forge-567709:4062225")
+    runtimeOnly fg.deobf("curse.maven:hunterillager-318857:3752127")
+    runtimeOnly fg.deobf("curse.maven:savage-and-ravage-381736:4396963")
+
+    runtimeOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:4577001")
+    runtimeOnly fg.deobf("curse.maven:caelus-308989:3650485")
+    runtimeOnly fg.deobf("curse.maven:curios-309927:4590652")
+    runtimeOnly fg.deobf("curse.maven:playeranimator-658587:4418152")
+    runtimeOnly fg.deobf("curse.maven:geckolib-388172:4181370")
+    runtimeOnly fg.deobf("curse.maven:architectury-api-419699:4521465")
+    runtimeOnly fg.deobf("curse.maven:blueprint-382216:3991478")
+    runtimeOnly fg.deobf("curse.maven:follow-me-463841:3919507")
+    runtimeOnly fg.deobf("simplemobs:dawncraft_mobs:1.18-0.9.6a")
+    runtimeOnly fg.deobf("curse.maven:mowzies-mobs-250498:4142172")
+    runtimeOnly fg.deobf("curse.maven:blood-and-madness-461017:4536670")
+    runtimeOnly fg.deobf("curse.maven:ars-nouveau-401955:4543053")
+    runtimeOnly fg.deobf("curse.maven:patchouli-306770:3846086")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
