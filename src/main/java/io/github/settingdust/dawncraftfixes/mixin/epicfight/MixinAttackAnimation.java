@@ -12,6 +12,6 @@ import yesman.epicfight.api.animation.types.AttackAnimation;
 public class MixinAttackAnimation {
     @WrapOperation(method = "hurtCollidingEntities", constant = @Constant(classValue = PartEntity.class), remap = false)
     private boolean dcfixes$avoidNullTrueEntity(Object entity, Operation<Boolean> original) {
-        return (!(entity instanceof PartEntity<?> part) || !(part.getParent() instanceof LivingEntity));
+        return (entity instanceof PartEntity<?> part && part.getParent() instanceof LivingEntity);
     }
 }
