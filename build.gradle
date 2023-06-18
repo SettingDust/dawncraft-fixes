@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.11.0'
+version = '0.12.0'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -223,6 +223,8 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:blood-and-madness-461017:4536670")
     runtimeOnly fg.deobf("curse.maven:ars-nouveau-401955:4543053")
     runtimeOnly fg.deobf("curse.maven:patchouli-306770:3846086")
+
+    implementation fg.deobf("curse.maven:alexs-cloud-storage-606618:3757407")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
