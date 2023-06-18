@@ -32,6 +32,6 @@ public class MixinItemWithTooltip {
             @Nullable Level level,
             List<Component> p_77624_3_,
             TooltipFlag p_77624_4_) {
-        return level != null && !level.isClientSide && original.call(p_77624_1_, level, p_77624_3_, p_77624_4_);
+        return level != null && level.isClientSide && original.call(window, key);
     }
 }
