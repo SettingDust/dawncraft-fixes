@@ -32,7 +32,7 @@ public class MixinCloudChestMenu {
         if (blacklistedItems.contains(item)) return false;
         try {
             return original.call(player, search, stack);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             blacklistedItems.add(item);
             DawncraftFixes.LOGGER.debug("Can't match item " + item, e);
             return false;
