@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.12.1'
+version = '0.12.2'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
