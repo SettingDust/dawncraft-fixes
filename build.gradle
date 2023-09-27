@@ -10,13 +10,13 @@ buildscript {
 }
 
 plugins {
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '6.+'
 }
 
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.12.3'
+version = '0.13.0'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -226,15 +226,24 @@ dependencies {
 
     implementation fg.deobf("curse.maven:alexs-cloud-storage-606618:3757407")
 
+    implementation fg.deobf('net.joefoxe.hexerei:hexerei:0.2.2')
+    runtimeOnly fg.deobf("curse.maven:oculus-581495:4578744")
+//    implementation fg.deobf("curse.maven:hexerei-548599:3906977")
+
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    compileOnly annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixin_extras_version}")
-    implementation jarJar("com.github.llamalad7.mixinextras:mixinextras-forge:${mixin_extras_version}") {
+    compileOnly annotationProcessor("com.github.LlamaLad7.MixinExtras:mixinextras-common:${mixin_extras_version}")
+    implementation jarJar("com.github.LlamaLad7.MixinExtras:mixinextras-forge:${mixin_extras_version}") {
         transitive = false
         jarJar.ranged it, "[${mixin_extras_version},)"
     }
+
+//    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:$mixin_squared_version"))
+//    implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:$mixin_squared_version")) {
+//        jarJar.ranged(it, "[$mixin_squared_version,)")
+//    }
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
@@ -242,7 +251,7 @@ dependencies {
 jar.finalizedBy('reobfJar')
 
 tasks.jarJar {
-    classifier ""
+    archiveClassifier = ""
     from "LICENSE"
 }
 
