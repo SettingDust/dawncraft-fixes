@@ -4,13 +4,13 @@ import cpw.mods.modlauncher.api.IEnvironment;
 import cpw.mods.modlauncher.api.ITransformationService;
 import cpw.mods.modlauncher.api.ITransformer;
 import cpw.mods.modlauncher.api.IncompatibleEnvironmentException;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLLoader;
+import org.apache.commons.compress.utils.Lists;
 import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -21,18 +21,18 @@ public class DawncraftFixesTransformationService implements ITransformationServi
     }
 
     @Override
-    public void initialize(IEnvironment environment) {
-
-    }
+    public void initialize(IEnvironment environment) {}
 
     @Override
-    public void onLoad(IEnvironment env, Set<String> otherServices) throws IncompatibleEnvironmentException {
-
-    }
+    public void onLoad(IEnvironment env, Set<String> otherServices) throws IncompatibleEnvironmentException {}
 
     @Override
     public @NotNull List<ITransformer> transformers() {
-        return List.of(new HexereiBufferSourceTransformer());
+        final var list = new ArrayList<ITransformer>();
+        if (FMLLoader.getDist().isClient()) {
+            list.add(new HexereiBufferSourceTransformer());
+        }
+        return list;
     }
 
     @Override

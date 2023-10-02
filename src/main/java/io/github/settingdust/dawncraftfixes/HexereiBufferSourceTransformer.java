@@ -5,16 +5,10 @@ import cpw.mods.modlauncher.api.ITransformer;
 import cpw.mods.modlauncher.api.ITransformerVotingContext;
 import cpw.mods.modlauncher.api.TransformerVoteResult;
 import org.jetbrains.annotations.NotNull;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.Label;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
-import org.objectweb.asm.util.CheckMethodAdapter;
 import org.slf4j.Logger;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,18 +20,9 @@ public class HexereiBufferSourceTransformer implements ITransformer<ClassNode> {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    private static final Map<String, String> MAP = Map.of(
-            "net/minecraft/client/renderer/MultiBufferSource$BufferSource",
-            "net/minecraft/client/renderer/MultiBufferSource");
-
     @Override
     public @NotNull ClassNode transform(ClassNode input, ITransformerVotingContext context) {
         String name = input.name;
-        Path path = Path.of(name + ".class");
-        try {
-            Files.deleteIfExists(path);
-        } catch (IOException e) {
-        }
         final var methods = Set.of(
                 "renderItem",
                 "drawPage",
@@ -132,16 +117,6 @@ public class HexereiBufferSourceTransformer implements ITransformer<ClassNode> {
                     }
                 }
             }
-        }
-        ClassWriter writer = new ClassWriter(0);
-        input.accept(writer);
-        writer.visitSource(name, null);
-        try {
-            Files.createDirectories(path.getParent());
-            Files.createFile(path);
-            Files.write(path, writer.toByteArray());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         return input;
     }
