@@ -7,9 +7,9 @@ import cpw.mods.modlauncher.api.TransformerVoteResult;
 import org.jetbrains.annotations.NotNull;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
+import org.objectweb.asm.util.CheckClassAdapter;
 import org.slf4j.Logger;
 
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -47,33 +47,10 @@ public class HexereiBufferSourceTransformer implements ITransformer<ClassNode> {
             for (int i = 0; i < input.methods.size(); i++) {
                 final var method = input.methods.get(i);
                 if (method.name.equals("renderTileStuff")) {
-                    for (AbstractInsnNode instruction : method.instructions) {
-                        if (instruction instanceof TypeInsnNode typeInsnNode
-                                && typeInsnNode.getOpcode() == Opcodes.CHECKCAST
-                                && typeInsnNode.desc.equals(
-                                        "net/minecraft/client/renderer/MultiBufferSource$BufferSource")) {
-                            method.instructions.remove(instruction);
-                            LOGGER.debug("Removed CHECKCAST of {} in {}#{}", typeInsnNode.desc, name, method.name);
-                        }
-                    }
+                    replaceCasts(method, name);
 
                     for (AbstractInsnNode instruction : method.instructions) {
-                        if (instruction instanceof MethodInsnNode methodInsnNode) {
-                            if (methods.contains(methodInsnNode.name)) {
-                                methodInsnNode.desc = methodInsnNode.desc.replace(
-                                        "net/minecraft/client/renderer/MultiBufferSource$BufferSource",
-                                        "net/minecraft/client/renderer/MultiBufferSource");
-                                LOGGER.debug(
-                                        "Replaced MultiBufferSource$BufferSource to MultiBufferSource for {}#{} {}{}",
-                                        name,
-                                        method.name,
-                                        methodInsnNode.name,
-                                        methodInsnNode.desc);
-                            }
-                            if (methodInsnNode.owner.equals("net/minecraft/client/renderer/MultiBufferSource$BufferSource")) {
-                                methodInsnNode.owner = "net/minecraft/client/renderer/MultiBufferSource";
-                            }
-                        }
+                        replaceMethodInsnNode(method, instruction, methods, name);
                     }
                 }
             }
@@ -100,25 +77,69 @@ public class HexereiBufferSourceTransformer implements ITransformer<ClassNode> {
                 }
 
                 for (AbstractInsnNode instruction : method.instructions) {
-                    if (instruction instanceof MethodInsnNode methodInsnNode) {
-                        if (methods.contains(methodInsnNode.name)) {
-                            methodInsnNode.desc = methodInsnNode.desc.replace(
-                                    "net/minecraft/client/renderer/MultiBufferSource$BufferSource",
-                                    "net/minecraft/client/renderer/MultiBufferSource");
-                            LOGGER.debug(
-                                    "Replaced MultiBufferSource$BufferSource to MultiBufferSource for {}#{}{}",
-                                    name,
-                                    method.name,
-                                    methodInsnNode.desc);
-                        }
-                        if (methodInsnNode.owner.equals("net/minecraft/client/renderer/MultiBufferSource$BufferSource")) {
-                            methodInsnNode.owner = "net/minecraft/client/renderer/MultiBufferSource";
-                        }
+                    replaceMethodInsnNode(method, instruction, methods, name);
+                }
+            }
+        }
+
+        if (name.equals("net/joefoxe/hexerei/tileentity/renderer/BookOfShadowsAltarRenderer")) {
+            for (MethodNode method : input.methods) {
+                if (method.name.equals("render")) {
+                    replaceCasts(method, name);
+
+                    for (AbstractInsnNode instruction : method.instructions) {
+                        replaceMethodInsnNode(method, instruction, methods, name);
                     }
                 }
             }
         }
+
+        CheckClassAdapter checkClassAdapter = new CheckClassAdapter(null);
+        input.accept(checkClassAdapter);
+
         return input;
+    }
+
+    private static void replaceMethodInsnNode(MethodNode method, AbstractInsnNode instruction, Set<String> methods, String name) {
+        if (instruction instanceof MethodInsnNode methodInsnNode) {
+            replaceMethodsDesc(methodInsnNode, methods, name, method);
+            replaceMethodsCalls(methodInsnNode);
+        }
+    }
+
+    private static void replaceCasts(MethodNode method, String name) {
+        for (AbstractInsnNode instruction : method.instructions) {
+            if (instruction instanceof TypeInsnNode typeInsnNode
+                    && typeInsnNode.getOpcode() == Opcodes.CHECKCAST
+                    && typeInsnNode.desc.equals("net/minecraft/client/renderer/MultiBufferSource$BufferSource")) {
+                method.instructions.remove(instruction);
+                LOGGER.debug("Removed CHECKCAST of {} in {}#{}", typeInsnNode.desc, name, method.name);
+            }
+        }
+    }
+
+    private static void replaceMethodsDesc(
+            MethodInsnNode methodInsnNode, Set<String> methods, String name, MethodNode method) {
+        if (methods.contains(methodInsnNode.name)) {
+            methodInsnNode.desc = methodInsnNode.desc.replace(
+                    "net/minecraft/client/renderer/MultiBufferSource$BufferSource",
+                    "net/minecraft/client/renderer/MultiBufferSource");
+            LOGGER.debug(
+                    "Replaced MultiBufferSource$BufferSource to MultiBufferSource for {}#{} {}{}",
+                    name,
+                    method.name,
+                    methodInsnNode.name,
+                    methodInsnNode.desc);
+        }
+    }
+
+    private static void replaceMethodsCalls(MethodInsnNode methodInsnNode) {
+        if (methodInsnNode.owner.equals("net/minecraft/client/renderer/MultiBufferSource$BufferSource")
+                && methodInsnNode.name.equals("m_6299_")) {
+            methodInsnNode.setOpcode(Opcodes.INVOKEINTERFACE);
+            methodInsnNode.owner = "net/minecraft/client/renderer/MultiBufferSource";
+            methodInsnNode.itf = true;
+        }
     }
 
     @Override
@@ -130,6 +151,7 @@ public class HexereiBufferSourceTransformer implements ITransformer<ClassNode> {
     public @NotNull Set<Target> targets() {
         return Set.of(
                 Target.targetClass("net.joefoxe.hexerei.data.books.PageDrawing"),
-                Target.targetClass("net.joefoxe.hexerei.item.custom.HexereiBookItemRenderer"));
+                Target.targetClass("net.joefoxe.hexerei.item.custom.HexereiBookItemRenderer"),
+                Target.targetClass("net.joefoxe.hexerei.tileentity.renderer.BookOfShadowsAltarRenderer"));
     }
 }
