@@ -5,6 +5,8 @@ import cpw.mods.modlauncher.api.ITransformer;
 import cpw.mods.modlauncher.api.ITransformerVotingContext;
 import cpw.mods.modlauncher.api.TransformerVoteResult;
 import org.jetbrains.annotations.NotNull;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Handle;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 import org.objectweb.asm.util.CheckClassAdapter;
@@ -27,7 +29,9 @@ public class HexereiBufferSourceTransformer implements ITransformer<ClassNode> {
                 "renderItem",
                 "drawPage",
                 "drawLivingEntity",
+                "lambda$drawLivingEntity$4",
                 "drawEntity",
+                "lambda$drawEntity$5",
                 "drawPages",
                 "drawBaseButtons",
                 "drawItemInSlot",
@@ -78,8 +82,13 @@ public class HexereiBufferSourceTransformer implements ITransformer<ClassNode> {
 
                 for (AbstractInsnNode instruction : method.instructions) {
                     replaceMethodInsnNode(method, instruction, methods, name);
+                    replaceLambdaCalls(instruction, methods);
                 }
             }
+
+            ClassWriter writer = new ClassWriter(0);
+            input.accept(writer);
+            writer.visitSource(".transformer.out" + name + ".class", null);
         }
 
         if (name.equals("net/joefoxe/hexerei/tileentity/renderer/BookOfShadowsAltarRenderer")) {
@@ -100,7 +109,30 @@ public class HexereiBufferSourceTransformer implements ITransformer<ClassNode> {
         return input;
     }
 
-    private static void replaceMethodInsnNode(MethodNode method, AbstractInsnNode instruction, Set<String> methods, String name) {
+    private static void replaceLambdaCalls(AbstractInsnNode instruction, Set<String> methods) {
+        if (instruction instanceof InvokeDynamicInsnNode dynamicInsnNode) {
+            if (dynamicInsnNode.desc.contains("MultiBufferSource$BufferSource")) {
+                dynamicInsnNode.desc =
+                        dynamicInsnNode.desc.replace("MultiBufferSource$BufferSource", "MultiBufferSource");
+                Handle bsm = dynamicInsnNode.bsm;
+                if (bsm.getOwner().equals("java/lang/invoke/LambdaMetafactory")
+                        && dynamicInsnNode.bsmArgs[1] instanceof Handle lambdaHandle
+                        && methods.contains(lambdaHandle.getName())) {
+                    dynamicInsnNode.bsmArgs[1] = new Handle(
+                            lambdaHandle.getTag(),
+                            lambdaHandle.getOwner(),
+                            lambdaHandle.getName(),
+                            lambdaHandle
+                                    .getDesc()
+                                    .replace("MultiBufferSource$BufferSource", "MultiBufferSource"),
+                            lambdaHandle.isInterface());
+                }
+            }
+        }
+    }
+
+    private static void replaceMethodInsnNode(
+            MethodNode method, AbstractInsnNode instruction, Set<String> methods, String name) {
         if (instruction instanceof MethodInsnNode methodInsnNode) {
             replaceMethodsDesc(methodInsnNode, methods, name, method);
             replaceMethodsCalls(methodInsnNode);
