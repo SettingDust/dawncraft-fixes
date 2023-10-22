@@ -14,14 +14,13 @@
     "dannysexpansion.MixinDEStructures",
     "dannysexpansion.MixinKlifourSpawnPiece",
     "dannysexpansion.MixinPlayerHelper",
-    "dualgreatsword.MixinEFAnimations",
-    "dualgreatsword.MixinEFWeaponCapabilityPresets",
     "epicfight.MixinAttackAnimation",
     "epicfight.MixinEntityEvents",
     "goblinsanddungeons.MixinGDArmorMaterial",
     "goblinsanddungeons.MixinItemWithTooltip",
     "integrated_api.MixinStructureSpecificMaps",
     "questgiver.MixinEventListener",
+    "shrines.MixinHeightSpawnCriteria",
     "untamedwilds.MixinEntityDataHolder",
     "untamedwilds.MixinEntityUtils",
     "untamedwilds.MixinNestReptileBlock",
@@ -31,7 +30,6 @@
     "defaultRequire": 1
   },
   "client": [
-    "callablehorses.MixinGuiStatViewer",
-    "epicfight.MixingRenderEngineEvents"
+    "callablehorses.MixinGuiStatViewer"
   ]
 }

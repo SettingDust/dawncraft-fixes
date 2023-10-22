@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.settingdust'
-version = '0.13.3'
+version = '0.14.0'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -143,6 +143,9 @@ repositories {
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
     flatDir {
         dir 'libs'
+        content {
+            includeGroup "dummy"
+        }
     }
 
     exclusiveContent {
@@ -196,7 +199,7 @@ dependencies {
     implementation fg.deobf("curse.maven:integrated-api-817709:4446913")
     runtimeOnly fg.deobf("curse.maven:feature-nbt-deadlock-be-gone-560323:3669114")
 
-    implementation fg.deobf('com.feywild.quest_giver:Quest_Giver:1.18.2-1.0.7')
+    implementation fg.deobf('dummy:Quest_Giver:1.18.2-1.0.10')
     runtimeOnly fg.deobf("curse.maven:guard-villagers-360203:3823106")
     runtimeOnly fg.deobf("curse.maven:reputation-579116:4412129")
     runtimeOnly fg.deobf("curse.maven:more-villagers-484954:3843498")
@@ -218,7 +221,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:architectury-api-419699:4521465")
     runtimeOnly fg.deobf("curse.maven:blueprint-382216:3991478")
     runtimeOnly fg.deobf("curse.maven:follow-me-463841:3919507")
-    runtimeOnly fg.deobf("simplemobs:dawncraft_mobs:1.18-0.9.6a")
+    runtimeOnly fg.deobf("dummy:dawncraft_mobs:1.18-0.9.6a")
     runtimeOnly fg.deobf("curse.maven:mowzies-mobs-250498:4142172")
     runtimeOnly fg.deobf("curse.maven:blood-and-madness-461017:4536670")
     runtimeOnly fg.deobf("curse.maven:ars-nouveau-401955:4543053")
@@ -226,9 +229,16 @@ dependencies {
 
     implementation fg.deobf("curse.maven:alexs-cloud-storage-606618:3757407")
 
-    implementation fg.deobf('net.joefoxe.hexerei:hexerei:0.2.2')
+    implementation fg.deobf('dummy:hexerei:0.2.2')
     runtimeOnly fg.deobf("curse.maven:oculus-581495:4578744")
-//    implementation fg.deobf("curse.maven:hexerei-548599:3906977")
+
+    implementation fg.deobf("curse.maven:shrines-structures-418915:3836227")
+
+//    runtimeOnly fg.deobf("curse.maven:terralith-513688:4559078")
+//    runtimeOnly fg.deobf("curse.maven:cristel-lib-856996:4531755")
+//
+//    runtimeOnly fg.deobf("curse.maven:blue-skies-312918:3788736")
+//    runtimeOnly fg.deobf("curse.maven:structure-gel-api-378802:4804138")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

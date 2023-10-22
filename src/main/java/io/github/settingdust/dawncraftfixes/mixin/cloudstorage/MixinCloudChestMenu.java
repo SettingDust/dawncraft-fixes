@@ -9,13 +9,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Set;
 
 @Mixin(CloudChestMenu.class)
 public class MixinCloudChestMenu {
-    private static final Set<Item> blacklistedItems = Sets.newHashSet();
+    @Unique
+    private static final Set<Item> dcfixes$blacklistedItems = Sets.newHashSet();
 
     @WrapOperation(
             method = "search",
@@ -29,11 +31,11 @@ public class MixinCloudChestMenu {
     private static boolean dcfixes$avoidClientTooltip(
             Player player, String search, ItemStack stack, Operation<Boolean> original) {
         var item = stack.getItem();
-        if (blacklistedItems.contains(item)) return false;
+        if (dcfixes$blacklistedItems.contains(item)) return false;
         try {
             return original.call(player, search, stack);
         } catch (Throwable e) {
-            blacklistedItems.add(item);
+            dcfixes$blacklistedItems.add(item);
             DawncraftFixes.LOGGER.debug("Can't match item " + item, e);
             return false;
         }
