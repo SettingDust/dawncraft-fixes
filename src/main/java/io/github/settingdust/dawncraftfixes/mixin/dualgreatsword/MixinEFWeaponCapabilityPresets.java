@@ -16,7 +16,7 @@ import reascer.efdg.world.capabilities.item.EFWeaponCapabilityPresets;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.EpicFightSounds;
-import yesman.epicfight.gameasset.EpicFightSkills;
+import yesman.epicfight.gameasset.Skills;
 import yesman.epicfight.skill.SkillCategories;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
