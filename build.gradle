@@ -1,3 +1,5 @@
+import  net.minecraftforge.gradle.userdev.tasks.JarJar
+
 plugins {
     id 'java'
     id 'net.minecraftforge.gradle' version '6.+' apply false
@@ -11,7 +13,7 @@ java {
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
-subprojects {
+allprojects {
     apply plugin: 'java'
     apply plugin: 'net.minecraftforge.gradle'
 
@@ -158,12 +160,35 @@ subprojects {
         // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
         // The userdev artifact is a special name and will get all sorts of transformations applied to it.
         minecraft('net.minecraftforge:forge:1.18.2-40.2.1')
+
+        jarJar("io.github.llamalad7:mixinextras-forge:${mixin_extras_version}") {
+            transitive = false
+            jarJar.ranged it, "[${mixin_extras_version},)"
+        }
     }
 }
 
-jar {
-    archiveClassifier = 'slim'
+dependencies {
+    jarJar(project(":mod")) {
+        transitive = false
+        jarJar.ranged it, "[${rootProject.version},)"
+    }
+}
 
+jar.finalizedBy('reobfJar')
+
+tasks.jarJar {
+    mustRunAfter('reobfJar')
+    archiveClassifier = ""
+    from "LICENSE"
+    finalizedBy(reobf.maybeCreate("jarJar"))
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+jar {
     manifest {
         attributes([
                 "Specification-Title"     : "dawncraftfixes",
@@ -172,7 +197,8 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "SettingDust",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                FMLModType: "LIBRARY"
         ])
     }
 }

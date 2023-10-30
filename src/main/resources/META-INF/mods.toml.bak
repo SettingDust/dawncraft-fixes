@@ -1,0 +1,7 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[4,]"
+license = "MIT"
+[[mods]]
+modId = "dawncraft_fixes_core"
+version = "${file.jarVersion}"
+displayName = "Dawncraft Fixes Core"
