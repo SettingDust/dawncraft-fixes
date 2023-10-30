@@ -1,4 +1,4 @@
-package io.github.settingdust.dawncraftfixes;
+package io.github.settingdust.dawncraftfixes.core;
 
 import com.mojang.logging.LogUtils;
 import cpw.mods.modlauncher.api.ITransformer;

@@ -1,0 +1,13 @@
+version = rootProject.version
+
+java {
+    archivesBaseName = 'dawncraft-fixes'
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
+
+dependencies {
+    jarJar(project(":mod")) {
+        transitive = false
+        jarJar.ranged it, "[${rootProject.version},)"
+    }
+}
