@@ -22,7 +22,7 @@ public class DawncraftFixes {
     public DawncraftFixes() {
         if (ModList.get().isLoaded("unvotedandshelved")) MinecraftForge.EVENT_BUS.addListener(this::onLivingCreated);
 
-//        Objects.requireNonNull(DawncraftFixesConfig.COMMON);
+        Objects.requireNonNull(DawncraftFixesConfig.COMMON);
     }
 
     private void onLivingCreated(EntityJoinWorldEvent event) {
