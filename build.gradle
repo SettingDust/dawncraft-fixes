@@ -34,14 +34,20 @@ allprojects {
                     url = "https://api.modrinth.com/maven"
                 }
             }
+            forRepositories(fg.repository)
             filter {
                 includeGroup "maven.modrinth"
             }
         }
 
-        maven {
-            url "https://cursemaven.com"
-            content {
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url "https://cursemaven.com"
+                }
+            }
+            forRepositories(fg.repository)
+            filter {
                 includeGroup "curse.maven"
             }
         }
@@ -162,7 +168,9 @@ allprojects {
 }
 
 dependencies {
-    implementation project(path: ":mod")
+    implementation(project(path: ":mod")) {
+        transitive = false
+    }
     jarJar(project(path: ":mod")) {
         transitive = false
         jarJar.ranged it, "[${rootProject.version},)"

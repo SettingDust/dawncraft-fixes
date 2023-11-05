@@ -15,9 +15,8 @@ import reascer.efdg.gameasset.EFSkills;
 import reascer.efdg.world.capabilities.item.EFWeaponCapabilityPresets;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.gameasset.Animations;
+import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.gameasset.EpicFightSounds;
-import yesman.epicfight.gameasset.Skills;
-import yesman.epicfight.skill.SkillCategories;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
@@ -26,9 +25,10 @@ import java.util.function.Function;
 
 @Mixin(EFWeaponCapabilityPresets.class)
 public class MixinEFWeaponCapabilityPresets {
-    @Mutable
-    @Shadow(remap = false)
+
     @Final
+    @Shadow(remap = false)
+    @Mutable
     public static Function<Item, CapabilityItem.Builder> GREATSWORD;
 
     @Redirect(
@@ -49,15 +49,15 @@ public class MixinEFWeaponCapabilityPresets {
                                     .getWeaponCategory()
                             == CapabilityItem.WeaponCategories.GREATSWORD) {
                         if (entityPatch instanceof PlayerPatch<?> playerPatch) {
-                            if (playerPatch.getSkill(SkillCategories.PASSIVE).getSkill() != null
-                                    && playerPatch
-                                            .getSkill(SkillCategories.PASSIVE)
+                            if (playerPatch.getSkill(EFSkills.DUALGREATSWORD) != null
+                                    && (playerPatch)
+                                            .getSkill(EFSkills.DUALGREATSWORD)
                                             .getSkill()
                                             .getRegistryName()
                                             .getPath()
                                             .equals("dualgreatsword")) {
-                                return CapabilityItem.Styles.TWO_HAND;
-                            } else return CapabilityItem.Styles.ONE_HAND;
+                                return CapabilityItem.Styles.OCHS;
+                            } else return CapabilityItem.Styles.TWO_HAND;
                         } else return CapabilityItem.Styles.TWO_HAND;
                     }
                     return CapabilityItem.Styles.ONE_HAND;
@@ -66,65 +66,57 @@ public class MixinEFWeaponCapabilityPresets {
                 .swingSound(EpicFightSounds.WHOOSH_BIG)
                 .hitSound(EpicFightSounds.BLADE_HIT)
                 .newStyleCombo(
-                        CapabilityItem.Styles.ONE_HAND,
-                        EFAnimations.GREATSWORD_TWOHAND_AUTO_1,
-                        EFAnimations.GREATSWORD_TWOHAND_AUTO_2,
-                        EFAnimations.GREATSWORD_TWOHAND_AUTO_3,
+                        CapabilityItem.Styles.TWO_HAND,
+                        Animations.GREATSWORD_AUTO1,
+                        Animations.GREATSWORD_AUTO2,
                         Animations.GREATSWORD_DASH,
                         Animations.GREATSWORD_AIR_SLASH)
-                .specialAttack(CapabilityItem.Styles.ONE_HAND, Skills.GIANT_WHIRLWIND)
+                .innateSkill(CapabilityItem.Styles.TWO_HAND, (itemstack) -> EpicFightSkills.STEEL_WHIRLWIND)
                 .livingMotionModifier(
-                        CapabilityItem.Styles.ONE_HAND, LivingMotions.IDLE, Animations.BIPED_HOLD_GREATSWORD)
+                        CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, Animations.BIPED_HOLD_GREATSWORD)
                 .livingMotionModifier(
-                        CapabilityItem.Styles.ONE_HAND, LivingMotions.WALK, Animations.BIPED_HOLD_GREATSWORD)
+                        CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, Animations.BIPED_HOLD_GREATSWORD)
                 .livingMotionModifier(
-                        CapabilityItem.Styles.ONE_HAND, LivingMotions.CHASE, Animations.BIPED_HOLD_GREATSWORD)
+                        CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, Animations.BIPED_HOLD_GREATSWORD)
                 .livingMotionModifier(
-                        CapabilityItem.Styles.ONE_HAND, LivingMotions.RUN, Animations.BIPED_HOLD_GREATSWORD)
+                        CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, Animations.BIPED_HOLD_GREATSWORD)
                 .livingMotionModifier(
-                        CapabilityItem.Styles.ONE_HAND, LivingMotions.JUMP, Animations.BIPED_HOLD_GREATSWORD)
-                .livingMotionModifier(
-                        CapabilityItem.Styles.ONE_HAND, LivingMotions.KNEEL, Animations.BIPED_HOLD_GREATSWORD)
-                .livingMotionModifier(
-                        CapabilityItem.Styles.ONE_HAND, LivingMotions.SNEAK, Animations.BIPED_HOLD_GREATSWORD)
-                .livingMotionModifier(
-                        CapabilityItem.Styles.ONE_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
-                .livingMotionModifier(CapabilityItem.Styles.ONE_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD)
-                .newStyleCombo(
-                        CapabilityItem.Styles.TWO_HAND,
-                        EFAnimations.GREATSWORD_DUAL_AUTO_1,
-                        EFAnimations.GREATSWORD_DUAL_AUTO_2,
-                        EFAnimations.GREATSWORD_DUAL_AUTO_3,
-                        EFAnimations.GREATSWORD_DUAL_AUTO_4,
-                        EFAnimations.GREATSWORD_DUAL_DASH,
-                        EFAnimations.GREATSWORD_DUAL_AIRSLASH)
-                .specialAttack(CapabilityItem.Styles.TWO_HAND, EFSkills.EARTHQUAKE)
-                .livingMotionModifier(
-                        CapabilityItem.Styles.TWO_HAND, LivingMotions.IDLE, EFAnimations.GREATSWORD_DUAL_IDLE)
-                .livingMotionModifier(
-                        CapabilityItem.Styles.TWO_HAND, LivingMotions.WALK, EFAnimations.GREATSWORD_DUAL_WALK)
-                .livingMotionModifier(
-                        CapabilityItem.Styles.TWO_HAND, LivingMotions.CHASE, EFAnimations.GREATSWORD_DUAL_IDLE)
-                .livingMotionModifier(
-                        CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, EFAnimations.GREATSWORD_DUAL_RUN)
-                .livingMotionModifier(
-                        CapabilityItem.Styles.TWO_HAND, LivingMotions.JUMP, EFAnimations.GREATSWORD_DUAL_RUN)
+                        CapabilityItem.Styles.TWO_HAND, LivingMotions.JUMP, Animations.BIPED_HOLD_GREATSWORD)
                 .livingMotionModifier(
                         CapabilityItem.Styles.TWO_HAND, LivingMotions.KNEEL, Animations.BIPED_HOLD_GREATSWORD)
                 .livingMotionModifier(
                         CapabilityItem.Styles.TWO_HAND, LivingMotions.SNEAK, Animations.BIPED_HOLD_GREATSWORD)
                 .livingMotionModifier(
                         CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
-                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.SWORD_DUAL_GUARD)
-                .weaponCombinationPredicator((entitypatch) -> {
-                    if (entitypatch
+                .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD)
+                .newStyleCombo(
+                        CapabilityItem.Styles.OCHS,
+                        EFAnimations.GREATSWORD_DUAL_AUTO_1,
+                        EFAnimations.GREATSWORD_DUAL_AUTO_2,
+                        EFAnimations.GREATSWORD_DUAL_AUTO_3,
+                        EFAnimations.GREATSWORD_DUAL_AUTO_4,
+                        EFAnimations.GREATSWORD_DUAL_DASH,
+                        EFAnimations.GREATSWORD_DUAL_AIRSLASH)
+                .innateSkill(CapabilityItem.Styles.OCHS, (itemstack) -> EFSkills.EARTHQUAKE)
+                .livingMotionModifier(CapabilityItem.Styles.OCHS, LivingMotions.IDLE, EFAnimations.GREATSWORD_DUAL_IDLE)
+                .livingMotionModifier(CapabilityItem.Styles.OCHS, LivingMotions.WALK, EFAnimations.GREATSWORD_DUAL_WALK)
+                .livingMotionModifier(
+                        CapabilityItem.Styles.OCHS, LivingMotions.CHASE, EFAnimations.GREATSWORD_DUAL_IDLE)
+                .livingMotionModifier(CapabilityItem.Styles.OCHS, LivingMotions.RUN, EFAnimations.GREATSWORD_DUAL_RUN)
+                .livingMotionModifier(CapabilityItem.Styles.OCHS, LivingMotions.JUMP, EFAnimations.GREATSWORD_DUAL_RUN)
+                .livingMotionModifier(CapabilityItem.Styles.OCHS, LivingMotions.KNEEL, Animations.BIPED_HOLD_GREATSWORD)
+                .livingMotionModifier(CapabilityItem.Styles.OCHS, LivingMotions.SNEAK, Animations.BIPED_HOLD_GREATSWORD)
+                .livingMotionModifier(CapabilityItem.Styles.OCHS, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
+                .livingMotionModifier(CapabilityItem.Styles.OCHS, LivingMotions.BLOCK, Animations.SWORD_DUAL_GUARD)
+                .weaponCombinationPredicator((entityPatch) -> {
+                    if (entityPatch
                                     .getHoldingItemCapability(InteractionHand.OFF_HAND)
                                     .getWeaponCategory()
                             == CapabilityItem.WeaponCategories.GREATSWORD) {
-                        if (entitypatch instanceof PlayerPatch<?> playerPatch) {
-                            return playerPatch.getSkill(SkillCategories.PASSIVE).getSkill() != null
+                        if (entityPatch instanceof PlayerPatch<?> playerPatch) {
+                            return playerPatch.getSkill(EFSkills.DUALGREATSWORD) != null
                                     && playerPatch
-                                            .getSkill(SkillCategories.PASSIVE)
+                                            .getSkill(EFSkills.DUALGREATSWORD)
                                             .getSkill()
                                             .getRegistryName()
                                             .getPath()
