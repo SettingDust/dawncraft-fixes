@@ -60,7 +60,7 @@ public class MixinEFWeaponCapabilityPresets {
                             } else return CapabilityItem.Styles.TWO_HAND;
                         } else return CapabilityItem.Styles.TWO_HAND;
                     }
-                    return CapabilityItem.Styles.ONE_HAND;
+                    return CapabilityItem.Styles.TWO_HAND;
                 })
                 .collider(EFColliders.GREATSWORD)
                 .swingSound(EpicFightSounds.WHOOSH_BIG)
