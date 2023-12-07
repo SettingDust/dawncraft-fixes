@@ -88,6 +88,8 @@ dependencies {
 
     implementation fg.deobf("curse.maven:shrines-structures-418915:3836227")
 
+    implementation fg.deobf("curse.maven:revamped-phantoms-575418:3694669")
+
 //    runtimeOnly fg.deobf("curse.maven:terralith-513688:4559078")
 //    runtimeOnly fg.deobf("curse.maven:cristel-lib-856996:4531755")
 //
