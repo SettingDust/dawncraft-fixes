@@ -63,7 +63,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:orcz-581652:3945799")
     runtimeOnly fg.deobf("curse.maven:difficult-raids-599116:4578894")
     runtimeOnly fg.deobf("curse.maven:illage-and-spillage-576368:3912773")
-    runtimeOnly fg.deobf("curse.maven:biome-makeover-forge-567709:4062225")
+    implementation fg.deobf("curse.maven:biome-makeover-forge-567709:4062225")
     runtimeOnly fg.deobf("curse.maven:hunterillager-318857:3752127")
     runtimeOnly fg.deobf("curse.maven:savage-and-ravage-381736:4396963")
 
@@ -89,6 +89,8 @@ dependencies {
     implementation fg.deobf("curse.maven:shrines-structures-418915:3836227")
 
     implementation fg.deobf("curse.maven:revamped-phantoms-575418:3694669")
+
+    implementation fg.deobf("dummy:irons_spellbooks-1.18.2:1.1.4.3")
 
 //    runtimeOnly fg.deobf("curse.maven:terralith-513688:4559078")
 //    runtimeOnly fg.deobf("curse.maven:cristel-lib-856996:4531755")
