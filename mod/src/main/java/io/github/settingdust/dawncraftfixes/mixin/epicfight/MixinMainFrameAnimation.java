@@ -12,7 +12,7 @@ import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 
 @Mixin(value = MainFrameAnimation.class, remap = false)
-public class MainFrameAnimationMixin {
+public class MixinMainFrameAnimation {
     @Inject(method = "begin(Lyesman/epicfight/world/capabilities/entitypatch/LivingEntityPatch;)V", at = @At("TAIL"))
     private void onBegin(LivingEntityPatch<?> entitypatch, CallbackInfo ci) {
         if (entitypatch instanceof PlayerPatch<?> playerPatch) {

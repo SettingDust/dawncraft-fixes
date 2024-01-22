@@ -13,8 +13,9 @@ import org.slf4j.Logger;
 import java.util.Objects;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("dawncraft_fixes")
+@Mod(DawncraftFixes.MODID)
 public class DawncraftFixes {
+    public static final String MODID = "dawncraft_fixes";
 
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();

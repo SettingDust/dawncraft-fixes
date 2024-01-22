@@ -16,9 +16,9 @@
     "dannysexpansion.MixinPlayerHelper",
     "dualgreatsword.MixinEFAnimations",
     "dualgreatsword.MixinEFWeaponCapabilityPresets",
-    "epicfight.MainFrameAnimationMixin",
     "epicfight.MixinAttackAnimation",
     "epicfight.MixinEntityEvents",
+    "epicfight.MixinMainFrameAnimation",
     "goblinsanddungeons.MixinGDArmorMaterial",
     "goblinsanddungeons.MixinItemWithTooltip",
     "integrated_api.MixinStructureSpecificMaps",
@@ -34,6 +34,7 @@
     "defaultRequire": 1
   },
   "client": [
-    "callablehorses.MixinGuiStatViewer"
+    "callablehorses.MixinGuiStatViewer",
+    "epicfight.RenderEngine$EventsMixin"
   ]
 }
