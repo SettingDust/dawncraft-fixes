@@ -48,7 +48,7 @@ dependencies {
     implementation fg.deobf("curse.maven:hit-indication-848933:4555284")
 
     implementation fg.deobf("curse.maven:untamedwilds-457252:4534274")
-    runtimeOnly fg.deobf("curse.maven:citadel-331936:3783096")
+    implementation fg.deobf("curse.maven:citadel-331936:3783096")
 
     implementation fg.deobf("curse.maven:integrated-api-817709:4446913")
     runtimeOnly fg.deobf("curse.maven:feature-nbt-deadlock-be-gone-560323:3669114")

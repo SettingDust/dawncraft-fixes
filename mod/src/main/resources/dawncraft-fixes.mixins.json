@@ -8,6 +8,7 @@
   "mixins": [
     "braincell.MixinBCCapabilityHelper",
     "braincell.MixinBCMovementHooks",
+    "citadel.CitadelMixin",
     "cloudstorage.MixinCloudChestMenu",
     "dannysexpansion.AccessorScatteredFeaturePiece",
     "dannysexpansion.InvokerKlifourSpawnPiece",
@@ -22,6 +23,7 @@
     "goblinsanddungeons.MixinGDArmorMaterial",
     "goblinsanddungeons.MixinItemWithTooltip",
     "integrated_api.MixinStructureSpecificMaps",
+    "meetyourfight.DepthStarMixin",
     "questgiver.MixinEventListener",
     "revampedphantoms.MixinShockwave",
     "shrines.MixinHeightSpawnCriteria",
