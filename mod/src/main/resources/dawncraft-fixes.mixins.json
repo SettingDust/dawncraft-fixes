@@ -8,7 +8,6 @@
   "mixins": [
     "braincell.MixinBCCapabilityHelper",
     "braincell.MixinBCMovementHooks",
-    "citadel.CitadelMixin",
     "cloudstorage.MixinCloudChestMenu",
     "dannysexpansion.AccessorScatteredFeaturePiece",
     "dannysexpansion.InvokerKlifourSpawnPiece",
