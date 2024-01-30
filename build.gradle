@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'io.github.settingdust'
-version = '0.18.0'
+version = '0.19.0'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -163,7 +163,7 @@ allprojects {
         // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed
         // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
         // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-        minecraft('net.minecraftforge:forge:1.18.2-40.2.10')
+        minecraft('net.minecraftforge:forge:1.18.2-40.2.17')
     }
 }
 
@@ -175,6 +175,9 @@ dependencies {
         transitive = false
         jarJar.ranged it, "[${rootProject.version},)"
     }
+
+    implementation fg.deobf('dummy:hexerei:0.2.2')
+    runtimeOnly fg.deobf("curse.maven:oculus-581495:4578744")
 }
 
 jar.finalizedBy('reobfJar')

@@ -14,7 +14,7 @@ public class DepthStarMixin {
                             value = "INVOKE",
                             target =
                                     "Llykrast/meetyourfight/item/DepthStar;getUseDuration(Lnet/minecraft/world/item/ItemStack;)I"))
-    private int dcfixes$constantUseDuration(final int original) {
+    private int dcfixes$limitUseDuration(final int original) {
         return Math.max(72000, original);
     }
 }

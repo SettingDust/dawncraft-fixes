@@ -39,7 +39,7 @@ dependencies {
     implementation fg.deobf("curse.maven:braincellapi-616354:3820306")
     implementation fg.deobf("curse.maven:dannys-expansion-425918:3820328")
 
-    implementation fg.deobf("curse.maven:epic-fight-mod-405076:4861783")
+    implementation fg.deobf("curse.maven:epic-fight-mod-405076:5064407")
     implementation fg.deobf("curse.maven:epicfight-dual-greatsword-654098:4862284")
 
     implementation fg.deobf("curse.maven:unvoted-shelved-551999:4373652")
@@ -75,16 +75,13 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:architectury-api-419699:4521465")
     runtimeOnly fg.deobf("curse.maven:blueprint-382216:3991478")
     runtimeOnly fg.deobf("curse.maven:follow-me-463841:3919507")
-    runtimeOnly fg.deobf("dummy:dawncraft_mobs:1.18-1.2.0")
+    runtimeOnly fg.deobf("dummy:dawncraft_mobs:1.18-1.2.3")
     runtimeOnly fg.deobf("curse.maven:mowzies-mobs-250498:4142172")
     runtimeOnly fg.deobf("curse.maven:blood-and-madness-461017:4536670")
     runtimeOnly fg.deobf("curse.maven:ars-nouveau-401955:4543053")
     runtimeOnly fg.deobf("curse.maven:patchouli-306770:3846086")
 
     implementation fg.deobf("curse.maven:alexs-cloud-storage-606618:3757407")
-
-    implementation fg.deobf('dummy:hexerei:0.2.2')
-    runtimeOnly fg.deobf("curse.maven:oculus-581495:4578744")
 
     implementation fg.deobf("curse.maven:shrines-structures-418915:3836227")
 
@@ -97,8 +94,16 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:terralith-513688:4559078")
 //    runtimeOnly fg.deobf("curse.maven:cristel-lib-856996:4531755")
 //
-//    runtimeOnly fg.deobf("curse.maven:blue-skies-312918:3788736")
-//    runtimeOnly fg.deobf("curse.maven:structure-gel-api-378802:4804138")
+    implementation fg.deobf("curse.maven:blue-skies-312918:3788736")
+    runtimeOnly fg.deobf("curse.maven:structure-gel-api-378802:4804138")
+
+    implementation fg.deobf("curse.maven:l_ender-s-cataclysm-551586:4418426")
+
+    runtimeOnly fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5057185")
+    runtimeOnly fg.deobf("curse.maven:epic-sanji-690400:4862281")
+
+
+    runtimeOnly fg.deobf("curse.maven:modernfix-790626:5025328")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
