@@ -27,6 +27,7 @@
     "meetyourfight.DepthStarMixin",
     "questgiver.MixinEventListener",
     "revampedphantoms.MixinShockwave",
+    "shouldersurfing.ShoulderRendererMixin",
     "shrines.MixinHeightSpawnCriteria",
     "untamedwilds.MixinEntityDataHolder",
     "untamedwilds.MixinEntityUtils",
@@ -38,6 +39,7 @@
   },
   "client": [
     "callablehorses.MixinGuiStatViewer",
-    "epicfight.RenderEngine$EventsMixin"
+    "epicfight.RenderEngine$EventsMixin",
+    "shouldersurfing.OutlineBufferSourceAccess"
   ]
 }
