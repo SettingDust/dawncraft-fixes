@@ -108,6 +108,9 @@ dependencies {
     implementation fg.deobf("curse.maven:shoulder-surfing-reloaded-243190:5167363")
     runtimeOnly fg.deobf("curse.maven:monster-plus-676418:4496901")
 
+    implementation fg.deobf("curse.maven:mutant-monsters-852665:4569845")
+    runtimeOnly fg.deobf("curse.maven:puzzles-lib-495476:5114509")
+
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html

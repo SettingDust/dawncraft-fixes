@@ -25,6 +25,7 @@
     "goblinsanddungeons.MixinItemWithTooltip",
     "integrated_api.MixinStructureSpecificMaps",
     "meetyourfight.DepthStarMixin",
+    "mutantmonsters.CreeperMinionEggMixin",
     "questgiver.MixinEventListener",
     "revampedphantoms.MixinShockwave",
     "shouldersurfing.ShoulderRendererMixin",
