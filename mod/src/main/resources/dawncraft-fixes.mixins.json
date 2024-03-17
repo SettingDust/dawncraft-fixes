@@ -41,6 +41,7 @@
   "client": [
     "callablehorses.MixinGuiStatViewer",
     "epicfight.RenderEngine$EventsMixin",
+    "minecraft.bossbar.LerpingBossEventMixin",
     "shouldersurfing.OutlineBufferSourceAccess"
   ]
 }

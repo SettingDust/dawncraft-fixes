@@ -20,6 +20,7 @@ public class CreeperMinionEggMixin {
             at =
                     @At(
                             value = "INVOKE",
+                            remap = false,
                             target =
                                     "Lfuzs/mutantmonsters/world/entity/CreeperMinionEgg;getTopPassenger(Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/world/entity/Entity;",
                             shift = At.Shift.BEFORE),
