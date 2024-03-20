@@ -33,7 +33,8 @@
     "untamedwilds.MixinEntityDataHolder",
     "untamedwilds.MixinEntityUtils",
     "untamedwilds.MixinNestReptileBlock",
-    "unvoted.MixinMobEvents"
+    "unvoted.MixinMobEvents",
+    "wom.WOMChestLootTablesMixin"
   ],
   "injectors": {
     "defaultRequire": 1

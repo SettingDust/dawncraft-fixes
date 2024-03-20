@@ -99,7 +99,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:l_ender-s-cataclysm-551586:4418426")
 
-    runtimeOnly fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5135428")
+    implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5135428")
     runtimeOnly fg.deobf("curse.maven:epic-sanji-690400:4862281")
 
 
