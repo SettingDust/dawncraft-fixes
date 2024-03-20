@@ -8,12 +8,17 @@ public class DawncraftFixesConfig {
     public static final ForgeConfigSpec COMMON;
 
     public static final ForgeConfigSpec.BooleanValue WOM_DISABLE_BUILTIN_LOOT;
+    public static final ForgeConfigSpec.BooleanValue INFERNAL_DISABLE_BUILTIN_LOOT;
 
     static {
         ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
         COMMON_BUILDER.comment("Weapon Of Minecraft").push("wom");
         WOM_DISABLE_BUILTIN_LOOT = COMMON_BUILDER.define("disable_builtin_loot", true);
+        COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.comment("Infernal Gainer").push("infernal");
+        INFERNAL_DISABLE_BUILTIN_LOOT = COMMON_BUILDER.define("disable_builtin_loot", true);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.comment("Dual Greatsword").push("dual_greatsword");

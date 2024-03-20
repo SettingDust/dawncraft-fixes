@@ -102,6 +102,7 @@ dependencies {
     implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5135428")
     runtimeOnly fg.deobf("curse.maven:epic-sanji-690400:4862281")
 
+    implementation fg.deobf("curse.maven:epic-fight-infernal-gainer-950270:5093614")
 
     runtimeOnly fg.deobf("curse.maven:modernfix-790626:5025328")
 

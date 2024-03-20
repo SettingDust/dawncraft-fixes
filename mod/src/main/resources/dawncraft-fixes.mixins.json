@@ -23,6 +23,7 @@
     "epicfight.MixinMainFrameAnimation",
     "goblinsanddungeons.MixinGDArmorMaterial",
     "goblinsanddungeons.MixinItemWithTooltip",
+    "infernal.IGChestLootTablesMixin",
     "integrated_api.MixinStructureSpecificMaps",
     "meetyourfight.DepthStarMixin",
     "mutantmonsters.CreeperMinionEggMixin",
