@@ -11,6 +11,7 @@
     "braincell.MixinBCMovementHooks",
     "cataclysm.The_IncineratorMixin",
     "cloudstorage.MixinCloudChestMenu",
+    "configured.ForgeConfigMixin",
     "dannysexpansion.AccessorScatteredFeaturePiece",
     "dannysexpansion.InvokerKlifourSpawnPiece",
     "dannysexpansion.MixinDEStructures",
