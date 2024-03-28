@@ -3,7 +3,6 @@ package io.github.settingdust.dawncraftfixes.core;
 import cpw.mods.modlauncher.api.IEnvironment;
 import cpw.mods.modlauncher.api.ITransformationService;
 import cpw.mods.modlauncher.api.ITransformer;
-import cpw.mods.modlauncher.api.IncompatibleEnvironmentException;
 import net.minecraftforge.fml.loading.FMLLoader;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,13 +21,14 @@ public class DawncraftFixesTransformationService implements ITransformationServi
     public void initialize(IEnvironment environment) {}
 
     @Override
-    public void onLoad(IEnvironment env, Set<String> otherServices) throws IncompatibleEnvironmentException {}
+    public void onLoad(IEnvironment env, Set<String> otherServices) {}
 
     @Override
     public @NotNull List<ITransformer> transformers() {
         final var list = new ArrayList<ITransformer>();
         if (FMLLoader.getDist().isClient()) {
             list.add(new HexereiBufferSourceTransformer());
+            list.add(new ObscureTooltipsAPI10Transformer());
         }
         return list;
     }

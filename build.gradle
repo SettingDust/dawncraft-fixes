@@ -1,3 +1,14 @@
+buildscript {
+    repositories {
+        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'java'
     id 'net.minecraftforge.gradle' version '6.+' apply false
@@ -14,6 +25,7 @@ java {
 allprojects {
     apply plugin: 'java'
     apply plugin: 'net.minecraftforge.gradle'
+    apply plugin: 'org.spongepowered.mixin'
 
     repositories {
         // Put repositories for dependencies here
@@ -178,6 +190,9 @@ dependencies {
 
     implementation fg.deobf('dummy:hexerei:0.2.2')
     runtimeOnly fg.deobf("curse.maven:oculus-581495:4578744")
+
+    implementation fg.deobf("curse.maven:obscure-tooltips-715660:4132232")
+    implementation fg.deobf("curse.maven:obscure-api-638417:4259349")
 }
 
 jar.finalizedBy('reobfJar')
