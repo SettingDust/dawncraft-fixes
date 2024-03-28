@@ -45,6 +45,7 @@
     "callablehorses.MixinGuiStatViewer",
     "epicfight.RenderEngine$EventsMixin",
     "minecraft.bossbar.LerpingBossEventMixin",
+    "obscuretooltips.TooltipRendererMixin",
     "shouldersurfing.OutlineBufferSourceAccess"
   ]
 }
