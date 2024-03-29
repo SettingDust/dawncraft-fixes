@@ -13,6 +13,7 @@ public class ShoulderRendererMixin {
     @ModifyExpressionValue(
             method = "postRenderCameraEntity",
             remap = false,
+            require = 0,
             at =
                     @At(
                             value = "INVOKE",
