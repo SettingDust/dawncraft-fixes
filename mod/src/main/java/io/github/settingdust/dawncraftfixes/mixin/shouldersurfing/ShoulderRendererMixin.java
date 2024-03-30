@@ -21,10 +21,6 @@ public class ShoulderRendererMixin {
                                     "Lcom/teamderpy/shouldersurfing/client/ShoulderRenderer;shouldRenderCameraEntityTransparent(Lnet/minecraft/world/entity/Entity;)Z"))
     private boolean dcfixes$avoidCast(
             final boolean original, Entity entity, float partialTick, MultiBufferSource multiBufferSource) {
-        if (original && multiBufferSource instanceof OutlineBufferSource outlineBufferSource) {
-            ((OutlineBufferSourceAccess) outlineBufferSource).getBufferSource().endLastBatch();
-            ((OutlineBufferSourceAccess) outlineBufferSource).getOutlineBufferSource().endLastBatch();
-        }
-        return original && multiBufferSource instanceof MultiBufferSource.BufferSource;
+        return false;
     }
 }
