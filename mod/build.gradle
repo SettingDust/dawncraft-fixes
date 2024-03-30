@@ -101,10 +101,13 @@ dependencies {
 
     implementation fg.deobf("curse.maven:configured-457570:4462832")
 
-    implementation fg.deobf("curse.maven:obscure-tooltips-715660:4132232")
-    implementation fg.deobf("curse.maven:obscure-api-638417:4259349")
+//    implementation fg.deobf("curse.maven:obscure-tooltips-715660:4132232")
+//    implementation fg.deobf("curse.maven:obscure-api-638417:4259349")
 
-    implementation fg.deobf("curse.maven:nyfs-quivers-482731:4020792")
+    implementation fg.deobf("curse.maven:apotheosis-313970:4634636")
+    implementation fg.deobf("curse.maven:placebo-283644:4500363")
+    implementation fg.deobf("curse.maven:epic-knights-armor-and-weapons-509041:4695781")
+    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:4973439")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

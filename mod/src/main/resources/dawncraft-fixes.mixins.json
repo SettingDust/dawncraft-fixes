@@ -26,6 +26,7 @@
     "goblinsanddungeons.MixinItemWithTooltip",
     "infernal.IGChestLootTablesMixin",
     "integrated_api.MixinStructureSpecificMaps",
+    "magistuarmory.MedievalBowItemMixin",
     "meetyourfight.DepthStarMixin",
     "mutantmonsters.CreeperMinionEggMixin",
     "questgiver.MixinEventListener",
@@ -46,7 +47,6 @@
     "epicfight.ControllEngineMixin",
     "epicfight.RenderEngine$EventsMixin",
     "minecraft.bossbar.LerpingBossEventMixin",
-    "obscuretooltips.TooltipRendererMixin",
     "shouldersurfing.OutlineBufferSourceAccess"
   ]
 }

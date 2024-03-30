@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import yesman.epicfight.client.events.engine.ControllEngine;
 
-@Mixin(ControllEngine.class)
+@Mixin(value = ControllEngine.class, remap = false)
 public class ControllEngineMixin {
     @Inject(method = "isKeyDown", at = @At("HEAD"), cancellable = true)
     private void dcfixes$ensureThread(final KeyMapping key, final CallbackInfoReturnable<Boolean> cir) {
