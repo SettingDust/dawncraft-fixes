@@ -43,6 +43,7 @@
   },
   "client": [
     "callablehorses.MixinGuiStatViewer",
+    "epicfight.ControllEngineMixin",
     "epicfight.RenderEngine$EventsMixin",
     "minecraft.bossbar.LerpingBossEventMixin",
     "obscuretooltips.TooltipRendererMixin",
