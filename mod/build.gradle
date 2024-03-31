@@ -109,6 +109,8 @@ dependencies {
     implementation fg.deobf("curse.maven:epic-knights-armor-and-weapons-509041:4695781")
     runtimeOnly fg.deobf("curse.maven:cloth-config-348521:4973439")
 
+    implementation fg.deobf("curse.maven:project-mmo-353935:4847410")
+
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html

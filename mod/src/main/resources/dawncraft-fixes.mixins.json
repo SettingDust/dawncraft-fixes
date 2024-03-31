@@ -29,6 +29,7 @@
     "magistuarmory.MedievalBowItemMixin",
     "meetyourfight.DepthStarMixin",
     "mutantmonsters.CreeperMinionEggMixin",
+    "pmmo.TooltipHandlerMixin",
     "questgiver.MixinEventListener",
     "revampedphantoms.MixinShockwave",
     "shouldersurfing.ShoulderRendererMixin",
@@ -46,6 +47,7 @@
     "callablehorses.MixinGuiStatViewer",
     "epicfight.ControllEngineMixin",
     "epicfight.RenderEngine$EventsMixin",
+    "epicfight.TrailParticle$ProviderMixin",
     "minecraft.bossbar.LerpingBossEventMixin",
     "shouldersurfing.OutlineBufferSourceAccess"
   ]
