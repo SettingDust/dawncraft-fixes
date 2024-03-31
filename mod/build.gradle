@@ -110,6 +110,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:cloth-config-348521:4973439")
 
     implementation fg.deobf("curse.maven:project-mmo-353935:4847410")
+    implementation fg.deobf("curse.maven:roughly-enough-items-310111:4951101")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
