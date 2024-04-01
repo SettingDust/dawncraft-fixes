@@ -2,14 +2,14 @@ package io.github.settingdust.dawncraftfixes.mixin.rei;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import harmonised.pmmo.client.events.TooltipHandler;
+import harmonised.pmmo.events.TooltipHandler;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.impl.client.search.argument.type.TooltipArgumentType;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(TooltipArgumentType.class)
+@Mixin(value = TooltipArgumentType.class, remap = false)
 public class TooltipArgumentTypeMixin {
     @WrapOperation(
             method = "cacheData(Lme/shedaniel/rei/api/common/entry/EntryStack;)Ljava/lang/String;",

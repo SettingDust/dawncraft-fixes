@@ -109,7 +109,7 @@ dependencies {
     implementation fg.deobf("curse.maven:epic-knights-armor-and-weapons-509041:4695781")
     runtimeOnly fg.deobf("curse.maven:cloth-config-348521:4973439")
 
-    implementation fg.deobf("curse.maven:project-mmo-353935:4847410")
+    implementation fg.deobf("curse.maven:project-mmo-353935:3809102")
     implementation fg.deobf("curse.maven:roughly-enough-items-310111:4951101")
 
     // For more info...
