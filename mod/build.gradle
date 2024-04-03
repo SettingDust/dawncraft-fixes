@@ -112,6 +112,12 @@ dependencies {
     implementation fg.deobf("curse.maven:project-mmo-353935:3809102")
     implementation fg.deobf("curse.maven:roughly-enough-items-310111:4951101")
 
+    implementation fg.deobf("curse.maven:blue-skies-312918:3788736")
+    implementation fg.deobf("curse.maven:the-conjurer-377798:3749502")
+    runtimeOnly fg.deobf("curse.maven:structure-gel-api-378802:4804138")
+
+    implementation fg.deobf("curse.maven:bygone-nether-576124:4747441")
+
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
@@ -120,6 +126,11 @@ dependencies {
     implementation jarJar("io.github.llamalad7:mixinextras-forge:${mixin_extras_version}") {
         transitive = false
         jarJar.ranged it, "[${mixin_extras_version},)"
+    }
+
+    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.1.2-beta.5"))
+    implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.1.2-beta.5")) {
+        jarJar.ranged(it, "[0.1.2-beta.5,)")
     }
 
 //    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:$mixin_squared_version"))

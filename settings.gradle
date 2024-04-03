@@ -8,6 +8,14 @@ pluginManagement {
 plugins {
     // Automatic toolchain provisioning
     id 'org.gradle.toolchains.foojay-resolver-convention' version '0.4.0'
+    id "com.gradle.develocity" version "3.17"
+}
+
+develocity {
+    buildScan {
+        termsOfUseUrl = "https://gradle.com/help/legal-terms-of-use"
+        termsOfUseUrl = "yes"
+    }
 }
 
 rootProject.name = 'dawncraft-fixes'

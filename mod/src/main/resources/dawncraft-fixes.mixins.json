@@ -10,6 +10,7 @@
     "blue_skies.CrushingHammerItemMixin",
     "braincell.MixinBCCapabilityHelper",
     "braincell.MixinBCMovementHooks",
+    "bygonenether.BasaltColumnsFeatureMixin",
     "cataclysm.The_IncineratorMixin",
     "cloudstorage.MixinCloudChestMenu",
     "configured.ForgeConfigMixin",
