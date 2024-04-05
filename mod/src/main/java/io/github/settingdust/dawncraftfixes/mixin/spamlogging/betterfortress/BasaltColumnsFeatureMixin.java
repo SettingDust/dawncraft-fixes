@@ -1,4 +1,4 @@
-package io.github.settingdust.dawncraftfixes.mixin.bygonenether;
+package io.github.settingdust.dawncraftfixes.mixin.spamlogging.betterfortress;
 
 import com.bawnorton.mixinsquared.TargetHandler;
 import net.minecraft.world.level.chunk.ChunkStatus;
@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(value = BasaltColumnsFeature.class, priority = 1500)
 public class BasaltColumnsFeatureMixin {
     @TargetHandler(
-            mixin = "com.izofar.bygonenether.mixin.NoBasaltColumnsInStructuresMixin",
-            name = "bygonenether_noBasaltColumnsInStructures")
+            mixin = "com.yungnickyoung.minecraft.betterfortresses.mixin.NoBasaltColumnsInStructuresMixin",
+            name = "betterfortresses_noBasaltColumnsInStructures")
     @Redirect(
             method = "@MixinSquared:Handler",
             at =
