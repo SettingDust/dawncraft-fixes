@@ -133,17 +133,14 @@ dependencies {
         jarJar.ranged it, "[${mixin_extras_version},)"
     }
 
-    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.1.2-beta.5"))
-    implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.1.2-beta.5")) {
-        jarJar.ranged(it, "[0.1.2-beta.5,)")
+    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:$mixin_squared_version"))
+    implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:$mixin_squared_version")) {
+        jarJar.ranged(it, "[$mixin_squared_version,)")
     }
 
-//    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:$mixin_squared_version"))
-//    implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:$mixin_squared_version")) {
-//        jarJar.ranged(it, "[$mixin_squared_version,)")
-//    }
-
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    implementation fg.deobf('dummy:aggrofix:1.18.2')
 }
 
 artifacts {

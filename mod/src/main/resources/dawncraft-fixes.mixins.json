@@ -6,6 +6,7 @@
   "refmap": "dawncraft-fixes.refmap.json",
   "plugin": "io.github.settingdust.dawncraftfixes.DawncraftFixesMixinConfig",
   "mixins": [
+    "aggrofixcrashwithsummoned.AggroCalcProcedureMixin",
     "apotheosis.AdventureConfigMixin",
     "blue_skies.CrushingHammerItemMixin",
     "braincell.MixinBCCapabilityHelper",
