@@ -11,11 +11,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-@Mixin(AggroCalcProcedure.class)
+@Mixin(value = AggroCalcProcedure.class, remap = false)
 public class AggroCalcProcedureMixin {
     @Inject(
             method = "onEntityAttacked",
-            at = @At(value = "INVOKE", ordinal = 0, target = "Ljava/util/PriorityQueue;poll()Ljava/lang/Object;"),
+            at = @At(value = "INVOKE", target = "Ljava/util/PriorityQueue;poll()Ljava/lang/Object;"),
             cancellable = true)
     private static void dcfixes$avoidCrash(
             final LivingHurtEvent event, final CallbackInfo ci, @Local PriorityQueue<Map.Entry<String, Double>> queue) {
