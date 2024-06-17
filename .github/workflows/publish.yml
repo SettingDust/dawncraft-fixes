@@ -45,7 +45,35 @@ jobs:
             forge
 
           dependencies: |
-            
+            aggro-fix(optional)
+            apotheosis(optional)
+            blue-skies(optional)
+            braincellapi(optional)
+            callable-horses(optional)
+            lendercataclysm(optional)
+            citadel(optional)
+            alexs-cloud-storage(optional)
+            configured(optional)
+            dannys-expansion(optional)
+            epicfight-dual-greatsword(optional)
+            epic-fight-mod(optional)
+            goblins-dungeons(optional)
+            epic-fight-infernal-gainer(optional)
+            integrated-api(optional)
+            epic-knights-armor-and-weapons(optional)
+            meet-your-fight(optional)
+            mutant-monsters(optional)
+            roughly-enough-items(optional)
+            project-mmo(optional)
+            irons-spells-n-spellbooks(optional)
+            revamped-phantoms(optional)
+            shoulder-surfing-reloaded(optional)
+            shrines-structures(optional)
+            yungs-better-nether-fortresses(optional)
+            bygone-nether(optional)
+            untamedwilds(optional)
+            unvoted-shelved(optional)
+            weapons-of-miracles-epicfight(optional)
 
           java: |
             17
