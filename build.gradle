@@ -12,10 +12,11 @@ buildscript {
 plugins {
     id 'java'
     id 'net.minecraftforge.gradle' version '6.+' apply false
+    id 'com.palantir.git-version' version "3.1.0"
 }
 
 group = 'io.github.settingdust'
-version = '0.34.0'
+version = gitVersion()
 
 java {
     archivesBaseName = 'dawncraft-fixes'
