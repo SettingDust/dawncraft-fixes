@@ -62,7 +62,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:architectury-api-419699:4521465")
     runtimeOnly fg.deobf("curse.maven:blueprint-382216:3991478")
     runtimeOnly fg.deobf("curse.maven:follow-me-463841:3919507")
-    runtimeOnly fg.deobf("dummy:dawncraft_mobs:1.18-1.2.3")
+    runtimeOnly fg.deobf("dummy:dawncraft_mobs:1.18-1.3.5_f")
     runtimeOnly fg.deobf("curse.maven:mowzies-mobs-250498:4142172")
     runtimeOnly fg.deobf("curse.maven:blood-and-madness-461017:4536670")
     runtimeOnly fg.deobf("curse.maven:ars-nouveau-401955:4543053")

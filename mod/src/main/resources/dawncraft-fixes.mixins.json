@@ -8,6 +8,7 @@
   "mixins": [
     "aggrofixcrashwithsummoned.AggroCalcProcedureMixin",
     "apotheosis.AdventureConfigMixin",
+    "apotheosis.SpectralShotAffixMixin",
     "blue_skies.CrushingHammerItemMixin",
     "braincell.MixinBCCapabilityHelper",
     "braincell.MixinBCMovementHooks",

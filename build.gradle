@@ -15,7 +15,7 @@ plugins {
 }
 
 group = 'io.github.settingdust'
-version = '0.32.0'
+version = '0.34.0'
 
 java {
     archivesBaseName = 'dawncraft-fixes'
@@ -193,6 +193,8 @@ dependencies {
 
     implementation fg.deobf("curse.maven:obscure-tooltips-715660:4132232")
     implementation fg.deobf("curse.maven:obscure-api-638417:4259349")
+
+    implementation fg.deobf("curse.maven:epic-fight-infernal-gainer-950270:5093614")
 }
 
 jar.finalizedBy('reobfJar')
