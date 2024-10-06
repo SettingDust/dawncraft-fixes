@@ -62,7 +62,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:architectury-api-419699:4521465")
     runtimeOnly fg.deobf("curse.maven:blueprint-382216:3991478")
     runtimeOnly fg.deobf("curse.maven:follow-me-463841:3919507")
-    runtimeOnly fg.deobf("dummy:dawncraft_mobs:1.18-1.3.5_f")
+    runtimeOnly fg.deobf("dummy:dawncraft_mobs:1.18-1.3.6")
     runtimeOnly fg.deobf("curse.maven:mowzies-mobs-250498:4142172")
     runtimeOnly fg.deobf("curse.maven:blood-and-madness-461017:4536670")
     runtimeOnly fg.deobf("curse.maven:ars-nouveau-401955:4543053")
@@ -120,6 +120,9 @@ dependencies {
     implementation fg.deobf("curse.maven:alexs-mobs-426558:3853078")
 
     implementation fg.deobf("curse.maven:yungs-better-nether-fortresses-817651:4428187")
+    implementation fg.deobf("curse.maven:yungs-api-421850:4428184")
+
+    implementation fg.deobf("curse.maven:bosses-of-mass-destruction-forge-941573:4955730")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

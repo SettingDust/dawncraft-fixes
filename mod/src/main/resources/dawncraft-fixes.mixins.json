@@ -26,6 +26,7 @@
     "epicfight.MixinAttackAnimation",
     "epicfight.MixinEntityEvents",
     "epicfight.MixinMainFrameAnimation",
+    "gaubtlet_laser_damage.LaserActionMixin",
     "goblinsanddungeons.MixinGDArmorMaterial",
     "goblinsanddungeons.MixinItemWithTooltip",
     "infernal.IGChestLootTablesMixin",

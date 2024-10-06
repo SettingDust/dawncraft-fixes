@@ -74,6 +74,7 @@ jobs:
             untamedwilds(optional)
             unvoted-shelved(optional)
             weapons-of-miracles-epicfight(optional)
+            bosses-of-mass-destruction-forge(optional)
 
           java: |
             17
