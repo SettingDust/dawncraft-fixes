@@ -75,6 +75,7 @@ jobs:
             unvoted-shelved(optional)
             weapons-of-miracles-epicfight(optional)
             bosses-of-mass-destruction-forge(optional)
+            hexerei(optional)
 
           java: |
             17
